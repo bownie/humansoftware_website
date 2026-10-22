@@ -1,0 +1,270 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+
+const endorsements = [
+  {
+    summary:
+      "A tense, unsettling story that stayed with the reader long after finishing.",
+    name: "Jeremy Markey",
+    source: "Rands Review",
+  },
+  {
+    summary:
+      "A timely, engaging thriller that takes on the changing world of technology.",
+    name: "Charles Humble",
+    source: "Tech Consultant & Journalist",
+  },
+  {
+    summary:
+      "Vivid setting and memorable characters make this a compelling read.",
+    name: "Russell McLean",
+    source: "Emmy and BAFTA Award-Winning Producer",
+  },
+  {
+    summary:
+      "A gripping story with insight for people leading and building technology teams.",
+    name: "Lovdeep Pannu",
+    source: "CTO, Epicenter",
+  },
+  {
+    summary:
+      "A fast-moving thriller that brings contemporary challenges into sharp focus.",
+    name: "Verified Amazon Reviewer",
+    source: "",
+  },
+  {
+    summary:
+      "A David-versus-Goliath story about human values in the age of AI.",
+    name: "Susanne Kaiser",
+    source: "Tech Consultant",
+  },
+];
+
+const readerResponses = [
+  {
+    name: "Jeremy Markey",
+    source: "LinkedIn and Rands Slack Book Reviewer",
+    summary:
+      "Praised the heartfelt characters and the convincing depiction of technical teams facing the introduction of AI.",
+  },
+  {
+    name: "Charles Humble",
+    source: "Tech Consultant & Journalist",
+    summary:
+      "Enjoyed the book as both a page-turning mystery and a thoughtful look at generative AI, globalisation and work.",
+  },
+  {
+    name: "Russell McLean",
+    source: "Emmy and BAFTA Award-Winning Producer",
+    summary:
+      "Highlighted the accessible story, vivid world-building and well-rounded cast.",
+  },
+  {
+    name: "Lovdeep Pannu",
+    source: "CTO, Epicenter",
+    summary:
+      "Connected with the characters and the book's reflections on leadership, teamwork and how people treat one another.",
+  },
+  {
+    name: "Jan Hartman",
+    source: "Lead Advisor, IT Strategy & Policy, Dutch Judiciary",
+    summary:
+      "Noted the rising tension, sharp observations and satisfying thriller pace.",
+  },
+  {
+    name: "Susanne Kaiser",
+    source: "Tech Consultant",
+    summary:
+      "Responded to the clash between human values and profit-driven, AI-fuelled corporate change.",
+  },
+];
+---
+
+<Layout
+  title={`Praise for Human Software | ${config.site.title}`}
+  description="Reader and reviewer responses to Human Software by Richard W. Bown."
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle="Praise for Human Software"
+    pageDesc="What readers and reviewers are saying about the novel."
+    class="island-about"
+  >
+    <section aria-label="Selected reviews" class="praise-featured">
+      {
+        endorsements.map(endorsement => (
+          <figure class="praise-card">
+            <p class="praise-card-summary">{endorsement.summary}</p>
+            <figcaption>
+              <strong>{endorsement.name}</strong>
+              {endorsement.source && <span> — {endorsement.source}</span>}
+            </figcaption>
+          </figure>
+        ))
+      }
+    </section>
+
+    <section aria-labelledby="reader-responses-title" class="praise-section">
+      <h2 id="reader-responses-title">What readers are saying</h2>
+      <div class="praise-responses">
+        {
+          readerResponses.map(response => (
+            <article class="praise-response">
+              <p>{response.summary}</p>
+              <p class="praise-attribution">
+                <strong>{response.name}</strong> — {response.source}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section aria-labelledby="longer-reviews-title" class="praise-section">
+      <h2 id="longer-reviews-title">Longer reviews</h2>
+      <div class="praise-details">
+        {
+          readerResponses
+            .filter(({ name }) =>
+              ["Charles Humble", "Jeremy Markey", "Jan Hartman"].includes(name)
+            )
+            .map(review => (
+              <details>
+                <summary>
+                  {review.name}'s review <span aria-hidden="true">+</span>
+                </summary>
+                <p>{review.summary}</p>
+                <p class="praise-attribution">{review.source}</p>
+              </details>
+            ))
+        }
+        <details>
+          <summary>
+            Amazon reader review <span aria-hidden="true">+</span>
+          </summary>
+          <p>
+            An Amazon reader praised the book as an energetic thriller that
+            tackles issues shaping the present day.
+          </p>
+        </details>
+      </div>
+    </section>
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+  .praise-featured {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .praise-card,
+  .praise-response,
+  .praise-details details {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--muted);
+  }
+
+  .praise-card {
+    margin: 0;
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .praise-card-summary {
+    color: var(--foreground);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .praise-card figcaption,
+  .praise-attribution {
+    margin-top: 1rem;
+    color: var(--muted-foreground);
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .praise-card figcaption strong,
+  .praise-attribution strong {
+    color: var(--foreground);
+  }
+
+  .praise-section {
+    margin-top: 3.5rem;
+  }
+
+  .praise-section h2 {
+    margin-bottom: 1.25rem;
+    color: var(--foreground);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 400;
+  }
+
+  .praise-responses {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .praise-response {
+    padding: 1.25rem;
+  }
+
+  .praise-response > p:first-child {
+    margin: 0;
+  }
+
+  .praise-response .praise-attribution {
+    margin-bottom: 0;
+  }
+
+  .praise-details {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .praise-details details {
+    padding: 1rem 1.25rem;
+  }
+
+  .praise-details summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--foreground);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .praise-details details[open] summary span {
+    transform: rotate(45deg);
+  }
+
+  .praise-details details > p {
+    margin: 1rem 0 0;
+  }
+
+  .praise-details details > .praise-attribution {
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 700px) {
+    .praise-featured {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .praise-responses {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

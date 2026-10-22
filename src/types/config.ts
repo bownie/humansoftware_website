@@ -21,7 +21,7 @@ interface SiteConfig {
   dir?: "ltr" | "rtl" | "auto";
   /** Google Search Console verification meta tag value */
   googleVerification?: string;
-  /** Google Analytics Measurement ID, e.g. G-XXXXXXXXXX */
+  /** Google tag ID, e.g. GT-XXXXXXXX or G-XXXXXXXXXX */
   googleTagId?: string;
 }
 

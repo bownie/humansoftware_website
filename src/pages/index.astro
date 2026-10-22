@@ -17,32 +17,36 @@ const homePath = getRelativeLocaleUrl(locale, "");
     id="main-content"
     data-layout="index"
     data-home-path={homePath}
-    class="app-layout island-home"
+    class="app-layout humansoftware-home"
   >
-    <section class="island-hero" aria-labelledby="hero-title">
-      <img src={getAssetPath("contours.svg")} alt="" class="island-contours" />
-      <div class="island-hero-grid">
+    <section class="humansoftware-hero" aria-labelledby="hero-title">
+      <img
+        src={getAssetPath("contours.svg")}
+        alt=""
+        class="humansoftware-contours"
+      />
+      <div class="humansoftware-hero-grid">
         <div>
-          <p class="island-eyebrow">A novel by Richard W. Bown</p>
+          <p class="humansoftware-eyebrow">A novel by Richard W. Bown</p>
           <h1 id="hero-title"><em>Human Software</em></h1>
-          <p class="island-subtitle">
+          <p class="humansoftware-subtitle">
             Richard W. Bown's debut novel, published in 2025.
           </p>
           <a
-            class="island-button bg-accent text-accent-foreground inline-block rounded-full px-6 py-3 font-bold"
+            class="humansoftware-button bg-accent text-accent-foreground inline-block rounded-full px-6 py-3 font-bold"
             href="https://humansoftwarebook.com">Discover the book</a
           >
         </div>
         <img
           src={getAssetPath("human-software-cover-v4.png")}
           alt="Human Software book cover"
-          class="island-cover"
+          class="humansoftware-cover"
         />
       </div>
     </section>
 
     <section class="py-16 sm:py-20" aria-labelledby="story-title">
-      <div class="island-story">
+      <div class="humansoftware-story">
         <h2 id="story-title" class="sr-only">About Human Software</h2>
         <p class="lead">
           <b>Human Software</b> is Richard W. Bown's debut novel, published in 2025.
@@ -57,7 +61,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
 
     <section
       id="join"
-      class="island-signup mb-16 sm:mb-20"
+      class="humansoftware-signup mb-16 sm:mb-20"
       aria-label="Newsletter signup"
     >
       <NewsletterSignup

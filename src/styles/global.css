@@ -37,24 +37,24 @@
 }
 
 @layer components {
-  .island-header {
+  .humansoftware-header {
     padding-top: 0.25rem;
     padding-bottom: 2rem;
     font-family: "DM Sans", sans-serif;
   }
-  .island-header-inner {
+  .humansoftware-header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
     padding: 0.75rem 0 1rem;
   }
-  .island-header-left {
+  .humansoftware-header-left {
     display: flex;
     align-items: center;
     gap: 0.75rem;
   }
-  .island-header-theme {
+  .humansoftware-header-theme {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -69,53 +69,53 @@
       color 0.2s ease,
       background 0.2s ease;
   }
-  .island-header-theme:hover {
+  .humansoftware-header-theme:hover {
     border-color: var(--accent);
     color: var(--accent);
   }
-  .island-header-icon {
+  .humansoftware-header-icon {
     width: 1rem;
     height: 1rem;
   }
-  .island-header-icon-sun {
+  .humansoftware-header-icon-sun {
     display: block;
   }
-  .island-header-icon-moon {
+  .humansoftware-header-icon-moon {
     display: none;
   }
-  html[data-theme="dark"] .island-header-icon-sun {
+  html[data-theme="dark"] .humansoftware-header-icon-sun {
     display: none;
   }
-  html[data-theme="dark"] .island-header-icon-moon {
+  html[data-theme="dark"] .humansoftware-header-icon-moon {
     display: block;
   }
-  .island-header-title {
+  .humansoftware-header-title {
     color: var(--foreground);
     font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none;
   }
-  .island-header-nav {
+  .humansoftware-header-nav {
     display: flex;
     align-items: center;
     gap: 1.25rem;
   }
-  .island-header-link {
+  .humansoftware-header-link {
     color: var(--muted-foreground);
     font-size: 1rem;
     text-decoration: none;
   }
-  .island-header-link:hover {
+  .humansoftware-header-link:hover {
     color: var(--accent);
   }
-  .island-footer {
+  .humansoftware-footer {
     font-family: "DM Sans", sans-serif;
   }
-  .island-about {
+  .humansoftware-about {
     font-family: "DM Sans", sans-serif;
     padding-bottom: 4rem;
   }
-  .island-about > h1 {
+  .humansoftware-about > h1 {
     margin: 1rem 0 2.5rem;
     color: var(--foreground);
     font-family: "Fraunces", Georgia, serif;
@@ -123,10 +123,10 @@
     font-weight: 400 !important;
     line-height: 1.05;
   }
-  .island-about > :not(h1) {
+  .humansoftware-about > :not(h1) {
     max-width: 72ch;
   }
-  .island-about h2 {
+  .humansoftware-about h2 {
     margin-top: 3.5rem;
     color: var(--foreground);
     font-family: "Fraunces", Georgia, serif;
@@ -134,18 +134,18 @@
     font-weight: 400;
     line-height: 1.15;
   }
-  .island-about p {
+  .humansoftware-about p {
     color: var(--muted-foreground);
     font-size: 1.06rem;
     line-height: 1.7;
   }
-  .island-about a {
+  .humansoftware-about a {
     color: var(--foreground);
   }
-  .island-about a:hover {
+  .humansoftware-about a:hover {
     color: var(--accent);
   }
-  .island-about img {
+  .humansoftware-about img {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     border: 0;
@@ -154,24 +154,24 @@
       0 24px 50px -18px rgb(20 40 50 / 45%),
       0 4px 12px rgb(20 40 50 / 15%);
   }
-  .island-home {
+  .humansoftware-home {
     font-family: "DM Sans", sans-serif;
     font-size: 1.06rem;
     line-height: 1.7;
   }
-  .island-home h1,
-  .island-home h2,
-  .island-home .serif {
+  .humansoftware-home h1,
+  .humansoftware-home h2,
+  .humansoftware-home .serif {
     font-family: "Fraunces", Georgia, serif;
   }
-  .island-hero {
+  .humansoftware-hero {
     position: relative;
     overflow: hidden;
     background: var(--muted);
     border-radius: 1.75rem;
     padding: clamp(2rem, 6vw, 4.5rem);
   }
-  .island-hero::after {
+  .humansoftware-hero::after {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -182,7 +182,7 @@
     content: "";
     pointer-events: none;
   }
-  .island-contours {
+  .humansoftware-contours {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -191,7 +191,7 @@
     opacity: 0.16;
     pointer-events: none;
   }
-  .island-hero-grid {
+  .humansoftware-hero-grid {
     position: relative;
     z-index: 1;
     display: grid;
@@ -199,7 +199,7 @@
     gap: 3rem;
     align-items: center;
   }
-  .island-eyebrow {
+  .humansoftware-eyebrow {
     margin: 0 0 1rem;
     color: var(--sea);
     font-size: 0.75rem;
@@ -207,23 +207,23 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
-  .island-hero h1 {
+  .humansoftware-hero h1 {
     max-width: 12ch;
     margin: 0 0 1.1rem;
     font-size: clamp(2.3rem, 5.6vw, 4rem);
     font-weight: 400;
     line-height: 1.05;
   }
-  .island-hero h1 em {
+  .humansoftware-hero h1 em {
     color: var(--accent);
   }
-  .island-subtitle {
+  .humansoftware-subtitle {
     max-width: 34ch;
     margin: 0 0 1.8rem;
     color: var(--muted-foreground);
     font-size: 1.2rem;
   }
-  .island-button {
+  .humansoftware-button {
     display: inline-block;
     border-radius: 999px;
     background: var(--accent);
@@ -233,15 +233,15 @@
     font-weight: 700;
     text-decoration: none;
   }
-  .island-button:hover {
+  .humansoftware-button:hover {
     filter: brightness(0.95);
   }
-  .island-when {
+  .humansoftware-when {
     margin: 0.9rem 0 0;
     color: var(--muted-foreground);
     font-size: 0.9rem;
   }
-  .island-cover {
+  .humansoftware-cover {
     display: block;
     justify-self: center;
     width: min(100%, 290px);
@@ -250,25 +250,25 @@
       0 24px 50px -18px rgb(20 40 50 / 45%),
       0 4px 12px rgb(20 40 50 / 15%);
   }
-  .island-story {
+  .humansoftware-story {
     width: 100%;
     margin: 0 auto;
   }
-  .island-story .lead {
+  .humansoftware-story .lead {
     margin: 0 0 1.6rem;
     font-family: "Fraunces", Georgia, serif;
     font-size: 1.5rem;
     line-height: 1.4;
   }
-  .island-story p {
+  .humansoftware-story p {
     margin: 0 0 1.2rem;
   }
-  .island-split {
+  .humansoftware-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
-  .island-tile {
+  .humansoftware-tile {
     display: flex;
     min-height: 170px;
     flex-direction: column;
@@ -276,62 +276,62 @@
     padding: 2rem;
     border-radius: 1.25rem;
   }
-  .island-tile h2 {
+  .humansoftware-tile h2 {
     margin: 0 0 0.3rem;
     font-size: 1.6rem;
     font-weight: 600;
   }
-  .island-tile p {
+  .humansoftware-tile p {
     margin: 0;
     font-size: 0.98rem;
   }
-  .island-tile-london {
+  .humansoftware-tile-london {
     background: #2a343c;
     color: #e7e2d8;
   }
-  .island-tile-kent {
+  .humansoftware-tile-kent {
     background: var(--sea-soft);
   }
-  .island-signup {
+  .humansoftware-signup {
     border-radius: 1.75rem;
     background: var(--accent);
     color: var(--accent-foreground);
     padding: clamp(2rem, 5vw, 3.5rem);
     text-align: center;
   }
-  [data-theme="dark"] .island-signup {
+  [data-theme="dark"] .humansoftware-signup {
     color: var(--accent-foreground);
   }
-  .island-signup h2 {
+  .humansoftware-signup h2 {
     margin: 0 0 0.5rem;
     font-size: 2rem;
     font-weight: 400;
   }
-  .island-signup > p {
+  .humansoftware-signup > p {
     max-width: 46ch;
     margin: 0 auto 1.5rem;
   }
-  .island-signup .newsletter-signup {
+  .humansoftware-signup .newsletter-signup {
     padding: 0;
     border: 0;
     background: transparent;
     box-shadow: none;
   }
-  .island-signup .newsletter-signup h2 {
+  .humansoftware-signup .newsletter-signup h2 {
     color: var(--accent-foreground);
   }
-  .island-signup .newsletter-signup p {
+  .humansoftware-signup .newsletter-signup p {
     color: var(--accent-foreground);
   }
-  .island-signup .ml-embedded form {
+  .humansoftware-signup .ml-embedded form {
     margin-right: auto !important;
   }
   @media (max-width: 760px) {
-    .island-hero-grid,
-    .island-split {
+    .humansoftware-hero-grid,
+    .humansoftware-split {
       grid-template-columns: 1fr;
     }
-    .island-cover {
+    .humansoftware-cover {
       order: -1;
       width: 200px;
     }

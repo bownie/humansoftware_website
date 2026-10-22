@@ -21,30 +21,36 @@ const t = useTranslations(locale);
   {t.a11y.skipToContent}
 </a>
 
-<header class="app-layout island-header">
-  <div class="island-header-inner">
-    <div class="island-header-left">
+<header class="app-layout humansoftware-header">
+  <div class="humansoftware-header-inner">
+    <div class="humansoftware-header-left">
       <button
         id="theme-btn"
         type="button"
-        class="island-header-theme"
+        class="humansoftware-header-theme"
         aria-label="Toggle theme"
         title="Toggle theme"
       >
-        <IconSunHigh class="island-header-icon island-header-icon-sun" />
-        <IconMoon class="island-header-icon island-header-icon-moon" />
+        <IconSunHigh
+          class="humansoftware-header-icon humansoftware-header-icon-sun"
+        />
+        <IconMoon
+          class="humansoftware-header-icon humansoftware-header-icon-moon"
+        />
       </button>
-      <a href={getRelativeLocaleUrl(locale, "")} class="island-header-title"
-        >{headerTitle}</a
+      <a
+        href={getRelativeLocaleUrl(locale, "")}
+        class="humansoftware-header-title">{headerTitle}</a
       >
     </div>
-    <nav class="island-header-nav" aria-label="Main navigation">
+    <nav class="humansoftware-header-nav" aria-label="Main navigation">
       <a
         href={getRelativeLocaleUrl(locale, "praise")}
-        class="island-header-link">{t.nav.praise}</a
+        class="humansoftware-header-link">{t.nav.praise}</a
       >
-      <a href={getRelativeLocaleUrl(locale, "about")} class="island-header-link"
-        >{t.nav.about}</a
+      <a
+        href={getRelativeLocaleUrl(locale, "about")}
+        class="humansoftware-header-link">{t.nav.about}</a
       >
     </nav>
   </div>

@@ -5,7 +5,7 @@ export default defineAstroPaperConfig({
     url: "https://humansoftwarebook.com/",
     title: "Human Software - a novel by Richard W. Bown",
     shortTitle: "Human Software",
-    description: "Human Software is Richard W. Bown's debut novel, published in 2025.",
+    description: "A quietly unsettling story about ambition, loyalty, and the people behind the systems we build.",
     author: "Richard Bown",
     profile: "https://hardbittensoftie.com",
     ogImage: "human-software-cover-v4.png",

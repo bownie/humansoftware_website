@@ -108,6 +108,18 @@
   .humansoftware-header-link:hover {
     color: var(--accent);
   }
+  .humansoftware-header-buy {
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--accent-foreground);
+    padding: 0.65rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .humansoftware-header-buy:hover {
+    filter: brightness(0.95);
+  }
   .humansoftware-footer {
     font-family: "DM Sans", sans-serif;
   }
@@ -254,6 +266,18 @@
     width: 100%;
     margin: 0 auto;
   }
+  .humansoftware-story-section {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+  }
+  .humansoftware-story h2,
+  .humansoftware-buy h2 {
+    margin: 0 0 1.25rem;
+    color: var(--foreground);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.12;
+  }
   .humansoftware-story .lead {
     margin: 0 0 1.6rem;
     font-family: "Fraunces", Georgia, serif;
@@ -262,6 +286,69 @@
   }
   .humansoftware-story p {
     margin: 0 0 1.2rem;
+  }
+  .humansoftware-text-link {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .humansoftware-buy {
+    scroll-margin-top: 2rem;
+    margin-bottom: clamp(3rem, 8vw, 6rem);
+    border-radius: 1.75rem;
+    background: var(--muted);
+    padding: clamp(2rem, 6vw, 4rem);
+  }
+  .humansoftware-buy-intro {
+    margin: 0 0 2rem;
+    color: var(--muted-foreground);
+  }
+  .humansoftware-format-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .humansoftware-format {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--background);
+    padding: 1.5rem;
+  }
+  .humansoftware-format h3 {
+    margin: 0 0 0.75rem;
+    color: var(--foreground);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.5rem;
+  }
+  .humansoftware-format > p {
+    color: var(--muted-foreground);
+  }
+  .humansoftware-format .humansoftware-price {
+    color: var(--foreground);
+    font-weight: 600;
+  }
+  .humansoftware-retailer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  .humansoftware-retailer-links a {
+    display: inline-block;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--foreground);
+    padding: 0.5rem 0.9rem;
+    text-decoration: none;
+  }
+  .humansoftware-retailer-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .humansoftware-local-bookshop {
+    margin: 1.5rem 0 0;
+    color: var(--muted-foreground);
+  }
+  .humansoftware-local-bookshop strong {
+    color: var(--foreground);
   }
   .humansoftware-split {
     display: grid;
@@ -327,6 +414,20 @@
     margin-right: auto !important;
   }
   @media (max-width: 760px) {
+    .humansoftware-header {
+      padding-bottom: 1rem;
+    }
+    .humansoftware-header-inner {
+      align-items: flex-start;
+    }
+    .humansoftware-header-nav {
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.85rem;
+    }
+    .humansoftware-header-buy {
+      padding: 0.45rem 0.8rem;
+    }
     .humansoftware-hero-grid,
     .humansoftware-split {
       grid-template-columns: 1fr;
@@ -334,6 +435,14 @@
     .humansoftware-cover {
       order: -1;
       width: 200px;
+    }
+    .humansoftware-format-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (min-width: 761px) {
+    .humansoftware-format-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 }

@@ -28,13 +28,17 @@ const homePath = getRelativeLocaleUrl(locale, "");
       <div class="humansoftware-hero-grid">
         <div>
           <p class="humansoftware-eyebrow">A novel by Richard W. Bown</p>
-          <h1 id="hero-title"><em>Human Software</em></h1>
+          <h1 id="hero-title">
+            When corporate wants you gone, who does the dirty work?
+          </h1>
           <p class="humansoftware-subtitle">
-            Richard W. Bown's debut novel, published in 2025.
+            <em>Human Software</em> is a sharp, unsettling thriller about ambition,
+            loyalty, and what it costs to be human in a world increasingly run by
+            machines.
           </p>
           <a
             class="humansoftware-button bg-accent text-accent-foreground inline-block rounded-full px-6 py-3 font-bold"
-            href="https://humansoftwarebook.com">Discover the book</a
+            href="#buy">Get the book</a
           >
         </div>
         <img
@@ -45,18 +49,90 @@ const homePath = getRelativeLocaleUrl(locale, "");
       </div>
     </section>
 
-    <section class="py-16 sm:py-20" aria-labelledby="story-title">
+    <section class="humansoftware-story-section" aria-labelledby="story-title">
       <div class="humansoftware-story">
-        <h2 id="story-title" class="sr-only">About Human Software</h2>
+        <p class="humansoftware-eyebrow">The story</p>
+        <h2 id="story-title">The people behind the systems</h2>
         <p class="lead">
-          <b>Human Software</b> is Richard W. Bown's debut novel, published in 2025.
+          Software keeps the world running. The people who keep it running are
+          often the last to matter.
         </p>
         <p>
-          Discover the book and learn more at <a
-            href="https://humansoftwarebook.com">humansoftwarebook.com</a
-          >.
+          Beth Walters is the engineer keeping a failing logistics company
+          online. When another global outage hits, a new executive's AI-driven
+          transformation threatens the people and livelihoods behind the code.
+          As pressure builds, Beth must decide what she's willing to risk—and
+          who she can trust.
         </p>
+        <p>
+          Set in a decaying English port town, <em>Human Software</em> is a contemporary
+          thriller about technology, corporate power, and human choices.
+        </p>
+        <a
+          class="humansoftware-text-link"
+          href={getRelativeLocaleUrl(locale, "praise")}
+        >
+          See what readers are saying
+        </a>
       </div>
+    </section>
+
+    <section id="buy" class="humansoftware-buy" aria-labelledby="buy-title">
+      <p class="humansoftware-eyebrow">Paperback, ebook and audiobook</p>
+      <h2 id="buy-title">Get <em>Human Software</em></h2>
+      <p class="humansoftware-buy-intro">
+        Choose your preferred format and bookseller.
+      </p>
+      <div class="humansoftware-format-grid">
+        <article class="humansoftware-format">
+          <h3>Paperback</h3>
+          <p>306 pages · includes a map of Kent and the Isle of Thanet</p>
+          <p class="humansoftware-price">£10.99 / €11.99 / $12.99</p>
+          <div class="humansoftware-retailer-links">
+            <a
+              href="https://www.waterstones.com/book/human-software/richard-william-bown/9789083469225"
+              target="_blank"
+              rel="noreferrer">Waterstones</a
+            >
+            <a
+              href="https://www.amazon.com/dp/B0FSK1QTCS"
+              target="_blank"
+              rel="noreferrer">Amazon</a
+            >
+          </div>
+        </article>
+        <article class="humansoftware-format">
+          <h3>Ebook</h3>
+          <p>Available for Kindle and Kobo.</p>
+          <div class="humansoftware-retailer-links">
+            <a
+              href="https://www.amazon.com/Human-Software-Life-I-T-Novel-ebook/dp/B0FR62MGWJ"
+              target="_blank"
+              rel="noreferrer">Kindle</a
+            >
+            <a
+              href="https://www.kobo.com/gb/en/ebook/human-software-a-life-in-i-t-a-novel"
+              target="_blank"
+              rel="noreferrer">Kobo</a
+            >
+          </div>
+        </article>
+        <article class="humansoftware-format">
+          <h3>Audiobook</h3>
+          <p>Listen to <em>Human Software</em> on Apple Books.</p>
+          <div class="humansoftware-retailer-links">
+            <a
+              href="https://books.apple.com/us/audiobook/human-software/id1860011324"
+              target="_blank"
+              rel="noreferrer">Apple Books</a
+            >
+          </div>
+        </article>
+      </div>
+      <p class="humansoftware-local-bookshop">
+        Prefer to shop locally? Ask your bookshop to order it using ISBN
+        <strong>9789083469225</strong>.
+      </p>
     </section>
 
     <section

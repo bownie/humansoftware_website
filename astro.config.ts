@@ -17,14 +17,7 @@ import {
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import config from "./astro-paper.config";
 
-const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const base =
-  process.env.ASTRO_BASE ||
-  (process.env.GITHUB_ACTIONS === "true" &&
-  repositoryName &&
-  repositoryName !== "bownie.github.io"
-    ? `/${repositoryName}`
-    : "/");
+const base = process.env.ASTRO_BASE || "/";
 
 export default defineConfig({
   site: config.site.url,

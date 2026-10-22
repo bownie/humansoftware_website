@@ -22,7 +22,7 @@
 - [ ] Add custom domain e.g. `newdomain.com`
 - [ ] Wait for DNS check to go green
 - [ ] Confirm **Enforce HTTPS** is ticked
-- GitHub Actions uses the repository path for its temporary URL. After connecting a custom domain, set the repository Actions variable `ASTRO_BASE` to `/` so assets and links use the domain root.
+- GitHub Actions builds for the domain root by default, so the site works across custom domains. If deploying to a project URL such as `https://username.github.io/repo/`, set the repository Actions variable `ASTRO_BASE` to `/repo`.
 
 ## 4. Cloudflare DNS
 

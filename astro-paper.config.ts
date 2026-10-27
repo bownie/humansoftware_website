@@ -4,10 +4,10 @@ export default defineAstroPaperConfig({
   site: {
     url: "https://humansoftwarebook.com/",
     title: "Human Software - a novel by Richard W. Bown",
-    shortTitle: "Human Software",
-    description: "A quietly unsettling story about ambition, loyalty, and the people behind the systems we build.",
+    shortTitle: "Human Software - a novel by Richard W. Bown",
+    description: "A story about ambition, loyalty and the people behind the systems we build.",
     author: "Richard Bown",
-    profile: "https://hardbittensoftie.com",
+    profile: "https://humansoftwarebook.com",
     ogImage: "human-software-cover-v4.png",
     lang: "en",
     timezone: "Europe/Amsterdam",

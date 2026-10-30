@@ -10,4 +10,4 @@ The paperback ISBN is **9789083469225**.
 - [Download the book information sheet in English](/book-assets/book-information-en.pdf)
 - [Download the boekinformatie in het Nederlands](/book-assets/book-information-nl.pdf)
 
-[See all paperback and ebook buying options](/how-to-purchase/).
+[See all paperback and ebook buying options](/#buy).

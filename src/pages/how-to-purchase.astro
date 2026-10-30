@@ -1,0 +1,22 @@
+---
+import config from "@/config";
+import { getAssetPath } from "@/utils/withBase";
+
+const purchaseUrl = `${getAssetPath("")}#buy`;
+---
+
+<!doctype html>
+<html lang={config.site.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0;url=${purchaseUrl}`} />
+    <link rel="canonical" href={new URL(purchaseUrl, Astro.site)} />
+    <title>See purchase options</title>
+  </head>
+  <body data-pagefind-ignore>
+    <p>
+      Purchase options have moved to the <a href={purchaseUrl}>homepage</a>.
+    </p>
+  </body>
+</html>

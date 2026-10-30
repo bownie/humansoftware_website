@@ -35,5 +35,4 @@ The novel works well for engineering team book clubs, leadership discussions, AI
 
 - [Download the free book club discussion guide](/book-assets/book-club-guide.pdf)
 - [Download a free sample of the first three chapters](/book-assets/first-three-chapters.pdf)
-- [Order paperback and ebook editions](/how-to-purchase/)
-- [Contact Richard](/contact-me/) about a book club or team discussion.
+- [Order paperback and ebook editions](/#buy)

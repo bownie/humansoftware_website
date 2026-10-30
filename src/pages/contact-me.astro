@@ -1,0 +1,20 @@
+---
+import config from "@/config";
+import { getAssetPath } from "@/utils/withBase";
+
+const aboutUrl = getAssetPath("about/");
+---
+
+<!doctype html>
+<html lang={config.site.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0;url=${aboutUrl}`} />
+    <link rel="canonical" href={new URL(aboutUrl, Astro.site)} />
+    <title>Redirecting to About</title>
+  </head>
+  <body data-pagefind-ignore>
+    <p>This page has moved to <a href={aboutUrl}>About Richard</a>.</p>
+  </body>
+</html>

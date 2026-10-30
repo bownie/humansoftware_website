@@ -1,0 +1,20 @@
+---
+import config from "@/config";
+import { getAssetPath } from "@/utils/withBase";
+
+const homeUrl = getAssetPath("");
+---
+
+<!doctype html>
+<html lang={config.site.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0;url=${homeUrl}`} />
+    <link rel="canonical" href={new URL(homeUrl, Astro.site)} />
+    <title>Redirecting to Home</title>
+  </head>
+  <body data-pagefind-ignore>
+    <p>This page has moved to the <a href={homeUrl}>homepage</a>.</p>
+  </body>
+</html>

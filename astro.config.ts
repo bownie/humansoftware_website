@@ -26,7 +26,11 @@ export default defineConfig({
     mdx(),
     sitemap({
       filter: page =>
-        config.features?.showArchives !== false || !page.endsWith("/archives/"),
+        !page.endsWith("/contact-me/") &&
+        !page.endsWith("/how-to-purchase/") &&
+        !page.endsWith("/blog-archive/") &&
+        (config.features?.showArchives !== false ||
+          !page.endsWith("/archives/")),
     }),
   ],
   i18n: {

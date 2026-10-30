@@ -7,4 +7,4 @@ Start reading _Human Software_ with a free sample of the first three chapters.
 
 [Download the first three chapters](/book-assets/first-three-chapters.pdf)
 
-[See paperback and ebook buying options](/how-to-purchase/).
+[See paperback and ebook buying options](/#buy).

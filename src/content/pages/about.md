@@ -5,8 +5,8 @@ description: "Richard W. Bown is a writer and software engineer, and a three-dec
 
 ## The making of a hard-bitten optimist
 
-Richard W. Bown is a writer and software engineer, and a three-decade survivor of corporate IT. He writes about the systems that we build and the life and stories that survive long after the people have moved on.
+I’m Richard W. Bown, a writer and software engineer. For three decades, I’ve worked in corporate IT and seen how the systems we build shape our working lives.
 
-Much of his career has been spent trying to build sustainable systems while also having to deal with pressure to deliver quickly, suffering forced shortcuts, death-march projects, layoffs, doing more with less, aging in tech and the vagaries of leadership. He explores these themes and the secrets of the people who build the systems through his writing.
+I write about ambition, pressure and compromise — and the people behind the technology.
 
-His next novel, <a href="https://onemoreislandbook.com">One More Island</a>, is a story about family, regret and getting another chance. It is due in 2027.
+My next novel, <a href="https://onemoreislandbook.com">One More Island</a>, is about family, regret and getting another chance. It is due in 2027.

@@ -30,15 +30,13 @@ const homePath = getRelativeLocaleUrl(locale, "");
           <p class="humansoftware-eyebrow">WELCOME TO SANDPORT</p>
           <h1 id="hero-title">Meet Beth and Chrissie</h1>
           <p class="humansoftware-subtitle">
-            <em>Beth Walters</em> is the on-call engineer who's spent years trying
-            to make broken systems work. Despite support from friends and colleagues,
-            juggling work and family life is tough and she knows things will change
-            with the arrival of a new boss.
+            <em>Beth Walters</em> keeps a failing logistics system running through
+            night shifts while trying to hold her family life together.
           </p>
           <p class="humansoftware-subtitle">
-            <em>Chrissie Hegarty</em> is the American executive on a mission to improve
-            efficiency. Ambitious and eager to make an impact, she will instead learn
-            what it means to make truly life or death decisions.
+            <em>Chrissie Hegarty</em> arrives from America to make the company more
+            efficient. Her AI overhaul will force both women to decide what progress
+            is worth.
           </p>
           <a
             class="humansoftware-button bg-accent text-accent-foreground inline-block rounded-full px-6 py-3 font-bold"
@@ -63,28 +61,15 @@ const homePath = getRelativeLocaleUrl(locale, "");
         </p>
         <h2 id="story-title">The Systems are Human</h2>
         <p>
-          Sandport isn't just another line on a spreadsheet. It's a English port
-          town full of people whose lives depend on their work, no matter how
-          difficult or distasteful they find it.
-        </p>
-
-        <p>
-          Chrissie knows that she has a struggle on her hands from the moment
-          the plane touches down. The town is in decline, the local workforce is
-          aging, expensive and will likely oppose her plan every step of the
-          way.
-        </p>
-
-        <p>
-          Set on the Kentish coast, <em>Human Software</em> explores relationship
-          between work and home, the inevitable progress of technology and the choices
-          people face when the world around them begin to change.
+          In Sandport, an ambitious AI overhaul puts livelihoods and a fragile
+          logistics network under pressure. The people behind the systems have
+          more at stake than the boardroom realises.
         </p>
         <a
           class="humansoftware-text-link"
-          href={getRelativeLocaleUrl(locale, "praise")}
+          href={getRelativeLocaleUrl(locale, "story")}
         >
-          See what readers are saying
+          Read the story
         </a>
       </div>
     </section>
@@ -92,7 +77,9 @@ const homePath = getRelativeLocaleUrl(locale, "");
     <section id="buy" class="humansoftware-buy" aria-labelledby="buy-title">
       <div class="humansoftware-buy-heading">
         <p class="humansoftware-eyebrow">Paperback and ebook</p>
-        <h2 id="buy-title">In print or digital format.</h2>
+        <h2 id="buy-title">Choose your edition</h2>
+        <p class="humansoftware-buy-intro">
+          The illustrated map is included in both editions.
         </p>
       </div>
       <div class="humansoftware-buy-showcase">
@@ -109,10 +96,6 @@ const homePath = getRelativeLocaleUrl(locale, "");
             alt="Illustrated map of Kent and the Isle of Thanet"
             loading="lazy"
           />
-          <figcaption>
-            Includes a map of Kent and the Isle of Thanet in both paperback and
-            ebook.
-          </figcaption>
         </figure>
       </div>
       <div class="humansoftware-format-grid">
@@ -120,7 +103,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
           <p class="humansoftware-format-label">Print edition</p>
           <h3>Paperback</h3>
           <p class="humansoftware-price">£10.99 / €11.99 / $12.99</p>
-          <p>306 pages, with the illustrated map included.</p>
+          <p>306 pages · ISBN 9789083469225</p>
           <div class="humansoftware-retailer-links">
             <a
               href="https://www.waterstones.com/book/human-software/richard-william-bown/9789083469225"
@@ -133,41 +116,6 @@ const homePath = getRelativeLocaleUrl(locale, "");
               rel="noreferrer">Amazon</a
             >
           </div>
-          <details class="humansoftware-more-retailers">
-            <summary>More places to buy</summary>
-            <div class="humansoftware-extra-retailers">
-              <div>
-                <p class="humansoftware-format-label">Paperback</p>
-                <div class="humansoftware-extra-retailer-links">
-                  <a
-                    href="https://www.barnesandnoble.com/w/human-software-richard-w-bown/1148349948?ean=9789083469225"
-                    target="_blank"
-                    rel="noreferrer">Barnes &amp; Noble</a
-                  >
-                  <a
-                    href="https://www.bol.com/nl/nl/p/human-software-a-life-in-i-t-a-novel/9300000242451744/"
-                    target="_blank"
-                    rel="noreferrer">bol.com</a
-                  >
-                  <a
-                    href="https://www.bruna.nl/engelse-boeken/human-software-9789083469225"
-                    target="_blank"
-                    rel="noreferrer">Bruna</a
-                  >
-                  <a
-                    href="https://www.abebooks.com/Human-Software-Life-Novel-Bown-Richard/32320979408/bd"
-                    target="_blank"
-                    rel="noreferrer">AbeBooks</a
-                  >
-                  <a
-                    href="https://www.powells.com/book/human-software-a-life-in-it---a-novel-9789083469225"
-                    target="_blank"
-                    rel="noreferrer">Powell’s</a
-                  >
-                </div>
-              </div>
-            </div>
-          </details>
         </article>
         <article class="humansoftware-format humansoftware-ebook-format">
           <p class="humansoftware-format-label">Digital edition</p>
@@ -185,53 +133,68 @@ const homePath = getRelativeLocaleUrl(locale, "");
               rel="noreferrer">Kobo</a
             >
           </div>
-          <details class="humansoftware-more-retailers">
-            <summary>More ebook stores</summary>
-            <p>
-              Also available from
-                <a href="https://books2read.com/humansoftware" target="_blank" rel="noreferrer">many other digital bookstores</a>.
-            </p>
-          </details>
         </article>
       </div>
+      <details class="humansoftware-more-retailers">
+        <summary>More retailers and international editions</summary>
+        <p>
+          <strong>Paperback:</strong>
+          <a
+            href="https://www.barnesandnoble.com/w/human-software-richard-w-bown/1148349948?ean=9789083469225"
+            target="_blank"
+            rel="noreferrer">Barnes &amp; Noble</a
+          >,
+          <a
+            href="https://www.bol.com/nl/nl/p/human-software-a-life-in-i-t-a-novel/9300000242451744/"
+            target="_blank"
+            rel="noreferrer">bol.com</a
+          >,
+          <a
+            href="https://www.bruna.nl/engelse-boeken/human-software-9789083469225"
+            target="_blank"
+            rel="noreferrer">Bruna</a
+          >,
+          <a
+            href="https://www.abebooks.com/Human-Software-Life-Novel-Bown-Richard/32320979408/bd"
+            target="_blank"
+            rel="noreferrer">AbeBooks</a
+          >,
+          <a
+            href="https://www.powells.com/book/human-software-a-life-in-it---a-novel-9789083469225"
+            target="_blank"
+            rel="noreferrer">Powell’s</a
+          >.
+        </p>
+        <p>
+          <strong>Ebook:</strong> Find more international ebook retailers through
+          <a
+            href="https://books2read.com/humansoftware"
+            target="_blank"
+            rel="noreferrer">Books2Read</a
+          >.
+        </p>
+      </details>
       <p class="humansoftware-local-bookshop">
-        Prefer to shop locally? Ask your bookshop to order the paperback using
-        ISBN <strong>9789083469225</strong>.
+        Prefer a local bookshop? Ask them to order the paperback using ISBN
+        <strong>9789083469225</strong>.
       </p>
-      <aside
-        class="humansoftware-original-stock"
-        aria-labelledby="original-cover-title"
-      >
+    </section>
+
+    <details class="humansoftware-earlier-edition">
+      <summary>Earlier edition · limited stock</summary>
+      <div>
         <img
           src={getAssetPath("human-software-original-cover-bookshot.jpg")}
           alt="Paperback copy of the earlier Human Software edition with its original cover"
           loading="lazy"
         />
-        <div>
-          <p class="humansoftware-format-label">
-            Earlier edition · limited stock
-          </p>
-          <h3 id="original-cover-title">Looking for the original cover?</h3>
-          <p>
-            The main listings above are for the current edition. I also have a
-            limited number of earlier paperbacks with the original cover, which
-            I can send directly. Get in touch if you’d prefer one.
-          </p>
-          <div class="humansoftware-retailer-links">
-            <a
-              href="https://bsky.app/profile/bownie.bsky.social"
-              target="_blank"
-              rel="noreferrer">Contact me on Bluesky</a
-            >
-            <a
-              href="https://www.linkedin.com/in/richard-bown/"
-              target="_blank"
-              rel="noreferrer">LinkedIn</a
-            >
-          </div>
-        </div>
-      </aside>
-    </section>
+        <p>
+          A limited number of earlier paperbacks with the original cover are
+          available directly from Richard. Get in touch through the social links
+          in the footer if you’d prefer one.
+        </p>
+      </div>
+    </details>
 
     <section
       id="join"

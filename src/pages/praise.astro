@@ -18,6 +18,11 @@ const endorsements = [
     source: "Tech Consultant & Journalist",
   },
   {
+    quote: "David versus Goliath in the age of AI. A real page-turner.",
+    name: "Susanne Kaiser",
+    source: "Tech Consultant",
+  },
+  {
     quote:
       "Vivid world-building and well-rounded characters. I found myself completely hooked.",
     name: "Russell McLean",
@@ -28,20 +33,9 @@ const endorsements = [
     name: "Lovdeep Pannu",
     source: "CTO, Epicenter",
   },
-  {
-    quote:
-      "A pacey thriller that hurls us into the maelstrom of our modern world.",
-    name: "Verified Amazon Reviewer",
-    source: "",
-  },
-  {
-    quote: "David versus Goliath in the age of AI. A real page-turner.",
-    name: "Susanne Kaiser",
-    source: "Tech Consultant",
-  },
 ];
 
-const readerResponses = [
+const longerReviews = [
   {
     name: "Jeremy Markey",
     source: "LinkedIn and Rands Slack Book Reviewer",
@@ -55,44 +49,26 @@ const readerResponses = [
       "A proper page turner — part thriller, part whodunnit and a fine dystopian parable. It makes serious points about generative AI, globalisation and dehumanisation at work whilst also being something you could happily read on a beach. As well as savouring the book, I suspect many readers will wince with recognition.",
   },
   {
-    name: "Russell McLean",
-    source: "Emmy and BAFTA Award-Winning Producer",
-    quote:
-      "Even if you’re not in tech, this story pulls you in with its vivid world-building and well-rounded characters. I found myself completely hooked.",
-  },
-  {
-    name: "Lovdeep Pannu",
-    source: "CTO, Epicenter",
-    quote:
-      "In one way or another I can identify with all of the characters. There are valuable lessons here about the whole being greater than the sum of its parts. Human Software is a must-read for managers, leaders and developers — it reminds us that we’re just humans making tools, and how we treat each other while we do it is our own choice.",
-  },
-  {
     name: "Jan Hartman",
     source: "Lead Advisor, IT Strategy & Policy, Dutch Judiciary",
     quote:
       "A pacey thriller that throws us right into the maelstrom of the big issues we all face today. This book builds tension through to a powerful crescendo finale — a real page-turner, with sharp observational phrasing that pops off the page. An accomplished debut and a refreshing read.",
   },
-  {
-    name: "Susanne Kaiser",
-    source: "Tech Consultant",
-    quote:
-      "A sharp, compelling novel about what happens when human values collide with profit-driven corporate change fuelled by AI. David versus Goliath in the age of AI.",
-  },
 ];
 ---
 
 <Layout
-  title={`Praise for Human Software | ${config.site.title}`}
-  description="Reader and reviewer responses to Human Software by Richard W. Bown."
+  title={`Reviews of Human Software | ${config.site.title}`}
+  description="Read what reviewers and readers say about Human Software, a novel by Richard W. Bown."
 >
   <Header />
   <Breadcrumb />
   <Main
-    pageTitle="Praise for Human Software"
-    pageDesc="What readers and reviewers are saying about the novel."
+    pageTitle="Reviews"
+    pageDesc="Short quotes and longer reviews from readers and reviewers."
     class="humansoftware-about"
   >
-    <section aria-label="Selected reviews" class="praise-featured">
+    <section aria-label="Selected reader quotes" class="praise-featured">
       {
         endorsements.map(endorsement => (
           <figure class="praise-card">
@@ -108,50 +84,20 @@ const readerResponses = [
       }
     </section>
 
-    <section aria-labelledby="reader-responses-title" class="praise-section">
-      <h2 id="reader-responses-title">What readers are saying</h2>
-      <div class="praise-responses">
-        {
-          readerResponses.map(response => (
-            <article class="praise-response">
-              <blockquote>“{response.quote}”</blockquote>
-              <p class="praise-attribution">
-                <strong>{response.name}</strong> — {response.source}
-              </p>
-            </article>
-          ))
-        }
-      </div>
-    </section>
-
     <section aria-labelledby="longer-reviews-title" class="praise-section">
-      <h2 id="longer-reviews-title">Longer reviews</h2>
+      <h2 id="longer-reviews-title">Read more</h2>
       <div class="praise-details">
         {
-          readerResponses
-            .filter(({ name }) =>
-              ["Charles Humble", "Jeremy Markey", "Jan Hartman"].includes(name)
-            )
-            .map(review => (
-              <details>
-                <summary>
-                  {review.name}'s review <span aria-hidden="true">+</span>
-                </summary>
-                <blockquote>“{review.quote}”</blockquote>
-                <p class="praise-attribution">{review.source}</p>
-              </details>
-            ))
+          longerReviews.map(review => (
+            <details>
+              <summary>
+                Read more — {review.name} <span aria-hidden="true">+</span>
+              </summary>
+              <blockquote>“{review.quote}”</blockquote>
+              <p class="praise-attribution">{review.source}</p>
+            </details>
+          ))
         }
-        <details>
-          <summary>
-            Amazon reader review <span aria-hidden="true">+</span>
-          </summary>
-          <blockquote>
-            “I definitely didn’t ask if it was a horror story, while this novel
-            wouldn’t be found in the horror section, it freaked me out more than
-            any Steven King novel has.”
-          </blockquote>
-        </details>
       </div>
     </section>
   </Main>
@@ -165,7 +111,6 @@ const readerResponses = [
   }
 
   .praise-card,
-  .praise-response,
   .praise-details details {
     border: 1px solid var(--border);
     border-radius: 1rem;
@@ -200,7 +145,7 @@ const readerResponses = [
   }
 
   .praise-section {
-    margin-top: 3.5rem;
+    margin-top: clamp(3rem, 7vw, 5rem);
   }
 
   .praise-section h2 {
@@ -211,26 +156,8 @@ const readerResponses = [
     font-weight: 400;
   }
 
-  .praise-responses {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .praise-response {
-    padding: 1.25rem;
-  }
-
-  .praise-response > p:first-child {
-    margin: 0;
-  }
-
-  .praise-response blockquote,
   .praise-details blockquote {
     margin: 0;
-  }
-
-  .praise-response .praise-attribution {
-    margin-bottom: 0;
   }
 
   .praise-details {
@@ -259,16 +186,16 @@ const readerResponses = [
     margin: 1rem 0 0;
   }
 
+  .praise-details details blockquote {
+    margin-top: 1rem;
+  }
+
   .praise-details details > .praise-attribution {
     font-size: 0.9rem;
   }
 
   @media (min-width: 700px) {
     .praise-featured {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .praise-responses {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }

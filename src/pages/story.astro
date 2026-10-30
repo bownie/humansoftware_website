@@ -8,7 +8,7 @@ import { getAssetPath } from "@/utils/withBase";
 
 const pageTitle = "Human Software: Where Would You Draw the Line?";
 const pageDescription =
-  "A novel about work, technology and the human cost of corporate decisions.";
+  "Discover the story of Beth Walters and Chrissie Hegarty, caught in a high-stakes fight over AI, work and the people behind the systems.";
 ---
 
 <Layout title={`${pageTitle} | Human Software`} description={pageDescription}>
@@ -27,85 +27,55 @@ const pageDescription =
       />
       <div>
         <p class="book-overview-question">
-          Should employees always go the extra mile for their employers?
+          When a company’s AI overhaul threatens a town’s livelihoods, how far
+          will its people go to protect one another?
         </p>
         <p>
-          <em>Human Software</em> is a novel that explores the delicate relationship
-          between workers and their employers. How smart, intrinsically curious and
-          self-motivated people can be driven to burnout by long hours and overwork.
-          It also shows how strictly hierarchical organisations, accommodating governments
-          and local authorities, can make decisions that affect not only employees
-          but also their families and local and natural environment through technical
-          projects such as data centres and AI usage.
+          In Sandport, software engineer Beth Walters keeps a failing logistics
+          system running through punishing night shifts.
         </p>
         <p>
-          Set in the decaying English port town of Sandport, the story follows
-          Beth Walters, an exhausted software engineer nursing failing logistics
-          systems through 3 a.m. support calls, and Chrissie Hegarty, an
-          ambitious American executive sent to force through a massive AI
-          overhaul.
+          Chrissie Hegarty arrives from America with a sweeping AI overhaul that
+          could make Beth and her colleagues redundant. Then a data leak and a
+          murder investigation reveal a plan to use AI to sabotage the company’s
+          own systems and frame its employees. Beth and Chrissie must decide
+          what they owe the company — and the people caught in its plans.
         </p>
       </div>
     </section>
 
     <section aria-labelledby="early-reader-reactions">
-      <h2 id="early-reader-reactions">A few reactions from early readers</h2>
+      <h2 id="early-reader-reactions">A reader’s reaction</h2>
       <div class="book-overview-quotes">
-        <blockquote>
-          <p>“Freaked me out more than any Stephen King novel.”</p>
-          <cite>Jeremy Markey, Rands Review</cite>
-        </blockquote>
         <blockquote>
           <p>
             “A pacey thriller that throws us right into the maelstrom of the big
             issues we all face today.”
           </p>
-          <cite>Verified Amazon reviewer</cite>
-        </blockquote>
-        <blockquote>
-          <p>“Could scarcely be more of the moment.”</p>
-          <cite>Charles Humble, Tech Consultant &amp; Journalist</cite>
+          <cite>Jan Hartman, Lead Advisor, Dutch Judiciary</cite>
         </blockquote>
       </div>
     </section>
 
-    <section class="book-overview-book-club" aria-labelledby="book-club">
-      <h2 id="book-club">For Your Engineering Book Club</h2>
+    <section class="book-overview-book-club" aria-labelledby="reading-groups">
+      <h2 id="reading-groups">For reading groups and teams</h2>
       <p>
-        Explore the human side of software with your engineering team. The book
-        club page has discussion prompts and a free guide to help get the
-        conversation started.
+        A free discussion guide with questions and workshop prompts exploring
+        the human side of software.
       </p>
       <a class="book-overview-button" href="/book-club/">
         Explore the engineering book club
       </a>
-    </section>
-
-    <section aria-labelledby="discussion-guide">
-      <h2 id="discussion-guide">Free discussion guide</h2>
-      <p>
-        There’s a free book club discussion guide to go with it — icebreakers,
-        themed questions and workshop prompts built around specific scenes.
-        Useful whether you’re reading this with your actual book club or getting
-        your team to argue about it over lunch.
+      <p class="book-overview-book-club-link">
+        <a href={getAssetPath("book-assets/book-club-guide.pdf")}>
+          Download the free discussion guide
+        </a>
       </p>
-      <a
-        class="book-overview-button book-overview-button-secondary"
-        href={getAssetPath("book-assets/book-club-guide.pdf")}
-        >Download the guide</a
-      >
-    </section>
-
-    <section aria-labelledby="bulk-copies">
-      <h2 id="bulk-copies">Bulk copies for teams and book clubs</h2>
-      <p>
-        Copies are available at a discount for groups of 5 or more,
-        first-edition cover included, while stock lasts. The discussion guide
-        comes free with every order.
+      <p class="book-overview-bulk">
+        Bulk orders of five or more are available at a discount, with the
+        discussion guide included. Get in touch through the social links in the
+        footer.
       </p>
-      <a class="book-overview-button" href="/contact-me/"
-        >Enquire for bulk pricing</a
-      >
     </section>
   </Main>
   <Footer />
@@ -176,10 +146,6 @@ const pageDescription =
     font-style: normal;
   }
 
-  .book-overview-author {
-    margin-top: 2rem;
-  }
-
   .book-overview-button {
     display: inline-block;
     margin-top: 0.5rem;
@@ -195,10 +161,15 @@ const pageDescription =
     filter: brightness(0.95);
   }
 
-  .book-overview-button-secondary {
-    border: 1px solid var(--border);
-    background: var(--background);
-    color: var(--foreground) !important;
+  .book-overview-book-club-link {
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+  }
+
+  .book-overview-bulk {
+    margin: 2rem 0 0;
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
   }
 
   @media (min-width: 700px) {

@@ -123,6 +123,22 @@
   .humansoftware-footer {
     font-family: "DM Sans", sans-serif;
   }
+  .humansoftware-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 1.25rem;
+    border-top: 1px solid var(--border);
+    padding: 1rem 0 1.5rem;
+    font-size: 0.9rem;
+  }
+  .humansoftware-footer-nav a {
+    color: var(--muted-foreground);
+    text-decoration: none;
+  }
+  .humansoftware-footer-nav a:hover {
+    color: var(--accent);
+  }
   .humansoftware-about {
     font-family: "DM Sans", sans-serif;
     padding-bottom: 4rem;
@@ -253,6 +269,14 @@
   .humansoftware-button:hover {
     filter: brightness(0.95);
   }
+  .humansoftware-hero-sample {
+    display: inline-block;
+    margin-left: 1rem;
+    color: var(--foreground);
+    font-weight: 700;
+    text-decoration-color: var(--sea);
+    text-underline-offset: 0.25em;
+  }
   .humansoftware-when {
     margin: 0.9rem 0 0;
     color: var(--muted-foreground);
@@ -303,9 +327,55 @@
     background: var(--muted);
     padding: clamp(2rem, 6vw, 4rem);
   }
+  .humansoftware-buy-heading {
+    max-width: 42rem;
+  }
+  .humansoftware-buy-heading .humansoftware-eyebrow {
+    margin-bottom: 0.75rem;
+  }
+  .humansoftware-buy h2 {
+    margin-bottom: 0.75rem;
+  }
   .humansoftware-buy-intro {
-    margin: 0 0 2rem;
+    margin: 0;
     color: var(--muted-foreground);
+  }
+  .humansoftware-buy-showcase {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.55fr) minmax(0, 1fr);
+    gap: clamp(1.25rem, 4vw, 2rem);
+    align-items: center;
+    margin: 2rem 0;
+  }
+  .humansoftware-buy-showcase figure {
+    margin: 0;
+  }
+  .humansoftware-buy-showcase img {
+    display: block;
+    width: 100%;
+    border-radius: 0.875rem;
+    box-shadow: 0 12px 30px -14px rgb(20 40 50 / 35%);
+  }
+  .humansoftware-buy-cover {
+    justify-self: center;
+    max-width: 210px;
+  }
+  .humansoftware-buy-cover img {
+    max-height: 310px;
+    object-fit: contain;
+  }
+  .humansoftware-buy-map img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+  .humansoftware-buy-showcase figcaption {
+    margin-top: 0.75rem;
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .humansoftware-buy-cover figcaption {
+    text-align: center;
   }
   .humansoftware-format-grid {
     display: grid;
@@ -323,12 +393,81 @@
     font-family: "Fraunces", Georgia, serif;
     font-size: 1.5rem;
   }
+  .humansoftware-format-label {
+    margin: 0 0 0.4rem;
+    color: var(--sea);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
   .humansoftware-format > p {
     color: var(--muted-foreground);
   }
   .humansoftware-format .humansoftware-price {
     color: var(--foreground);
     font-weight: 600;
+  }
+  .humansoftware-ebook-format {
+    align-self: stretch;
+  }
+  .humansoftware-more-retailers {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .humansoftware-more-retailers summary {
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .humansoftware-extra-retailers {
+    display: grid;
+    gap: 1rem;
+    margin-top: 0.9rem;
+  }
+  .humansoftware-extra-retailers p {
+    margin: 0;
+  }
+  .humansoftware-extra-retailer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .humansoftware-extra-retailer-links a {
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+  .humansoftware-original-stock {
+    display: grid;
+    grid-template-columns: minmax(130px, 0.35fr) minmax(0, 1fr);
+    gap: clamp(1.25rem, 4vw, 2rem);
+    align-items: center;
+    margin-top: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--background);
+    padding: clamp(1rem, 3vw, 1.75rem);
+  }
+  .humansoftware-original-stock > img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 0.75rem;
+  }
+  .humansoftware-original-stock h3 {
+    margin: 0 0 0.75rem;
+    color: var(--foreground);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.5rem;
+  }
+  .humansoftware-original-stock p {
+    color: var(--muted-foreground);
+  }
+  .humansoftware-original-stock .humansoftware-format-label {
+    color: var(--sea);
   }
   .humansoftware-retailer-links {
     display: flex;
@@ -433,6 +572,9 @@
     .humansoftware-header-buy {
       padding: 0.45rem 0.8rem;
     }
+    .humansoftware-hero-sample {
+      margin: 1rem 0 0;
+    }
     .humansoftware-hero-grid,
     .humansoftware-split {
       grid-template-columns: 1fr;
@@ -444,13 +586,30 @@
       margin-right: auto;
       margin-left: auto;
     }
-    .humansoftware-format-grid {
+    .humansoftware-buy-showcase {
       grid-template-columns: 1fr;
+    }
+
+    .humansoftware-buy-cover {
+      max-width: 150px;
+    }
+
+    .humansoftware-buy-map {
+      width: 100%;
+    }
+
+    .humansoftware-original-stock {
+      grid-template-columns: 1fr;
+    }
+
+    .humansoftware-original-stock > img {
+      max-width: 360px;
+      margin: 0 auto;
     }
   }
   @media (min-width: 761px) {
     .humansoftware-format-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 }

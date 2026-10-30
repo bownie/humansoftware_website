@@ -40,10 +40,18 @@ const t = useTranslations(locale);
       </button>
       <a
         href={getRelativeLocaleUrl(locale, "")}
+        data-astro-reload
         class="humansoftware-header-title">{headerTitle}</a
       >
     </div>
     <nav class="humansoftware-header-nav" aria-label="Main navigation">
+      <a
+        href={getRelativeLocaleUrl(
+          locale,
+          "human-software-where-would-you-draw-the-line"
+        )}
+        class="humansoftware-header-link">Story</a
+      >
       <a
         href={getRelativeLocaleUrl(locale, "praise")}
         class="humansoftware-header-link">{t.nav.praise}</a
@@ -54,10 +62,11 @@ const t = useTranslations(locale);
       >
       <a
         href={`${getRelativeLocaleUrl(locale, "")}#join`}
+        data-astro-reload
         class="humansoftware-header-link">Newsletter</a
       >
       <a
-        href={`${getRelativeLocaleUrl(locale, "")}#buy`}
+        href={getRelativeLocaleUrl(locale, "how-to-purchase")}
         class="humansoftware-header-buy">Get the book</a
       >
     </nav>

@@ -1,12 +1,16 @@
 ---
 title: "About"
-description: "About Human Software and its author, Richard W. Bown."
+description: "Richard W. Bown is a writer and software engineer, and a three-decade survivor of corporate IT."
 ---
 
-## About the Author
+## The making of a hard-bitten optimist
 
-Richard W. Bown is a writer and software engineer. Alongside a career spanning more than thirty years, he has explored fiction, music and essays about work and the stories that connect us.
+Richard W. Bown is a writer and software engineer, and a three-decade survivor of corporate IT. He writes about the systems that we build and the life and stories that survive long after the people have moved on.
 
-To learn more about Richard's writing, visit <a href="https://richardwbownauthor.com" target="_blank">richardwbownauthor.com</a>.
+Much of his career has been spent trying to build sustainable systems while also having to deal with pressure to deliver quickly, suffering forced shortcuts, death-march projects, layoffs, doing more with less, aging in tech and the vagaries of leadership. He explores these themes and the secrets of the people who build the systems through his writing.
+
+His debut novel, <a href="/human-software-where-would-you-draw-the-line/">Human Software</a>, is a sharp, quietly unsettling story about ambition, loyalty, and the people behind the code.
+
+His next novel, <a href="https://onemoreislandbook.com">One More Island</a>, is a story about family, regret and getting another chance. It is due in 2027.
 
 You can also find Richard on <a href="https://bsky.app/profile/bownie.bsky.social" target="_blank" rel="noreferrer">Bluesky</a>, <a href="https://www.linkedin.com/in/richard-bown/" target="_blank" rel="noreferrer">LinkedIn</a>, and <a href="https://www.goodreads.com/author/show/59396333.Richard_W_Bown" target="_blank" rel="noreferrer">Goodreads</a>.

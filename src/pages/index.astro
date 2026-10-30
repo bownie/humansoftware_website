@@ -30,19 +30,23 @@ const homePath = getRelativeLocaleUrl(locale, "");
           <p class="humansoftware-eyebrow">WELCOME TO SANDPORT</p>
           <h1 id="hero-title">Meet Beth and Chrissie</h1>
           <p class="humansoftware-subtitle">
-            <em>Beth Walters</em> is the on-call engineer who's spent years trying to make 
-            broken systems work. Despite support from friends and colleagues, juggling work
-            and family life is tough and she knows things will change with the arrival of a new boss.
+            <em>Beth Walters</em> is the on-call engineer who's spent years trying
+            to make broken systems work. Despite support from friends and colleagues,
+            juggling work and family life is tough and she knows things will change
+            with the arrival of a new boss.
           </p>
           <p class="humansoftware-subtitle">
-            <em>Chrissie Hegarty</em> is the American executive on a mission to
-            improve efficiency. Ambitious and eager to make an impact, she will instead learn what it
-            means to make truly life or death decisions.
+            <em>Chrissie Hegarty</em> is the American executive on a mission to improve
+            efficiency. Ambitious and eager to make an impact, she will instead learn
+            what it means to make truly life or death decisions.
           </p>
           <a
             class="humansoftware-button bg-accent text-accent-foreground inline-block rounded-full px-6 py-3 font-bold"
             href="#buy">Get the book</a
           >
+          <a class="humansoftware-hero-sample" href="/prologue/">
+            Read a sample
+          </a>
         </div>
         <img
           src={getAssetPath("human-software-cover-v4.png")}
@@ -54,24 +58,27 @@ const homePath = getRelativeLocaleUrl(locale, "");
 
     <section class="humansoftware-story-section" aria-labelledby="story-title">
       <div class="humansoftware-story">
-        <p class="humansoftware-eyebrow">Software runs our world. It doesn’t rule our lives</p>
+        <p class="humansoftware-eyebrow">
+          Software runs our world. It doesn’t rule our lives
+        </p>
         <h2 id="story-title">The Systems are Human</h2>
         <p>
-          Sandport isn't just another line on a spreadsheet. It's a English port town
-          full of people whose lives depend on their work, no matter how difficult or
-          distasteful they find it.
+          Sandport isn't just another line on a spreadsheet. It's a English port
+          town full of people whose lives depend on their work, no matter how
+          difficult or distasteful they find it.
         </p>
 
         <p>
-          Chrissie knows that she has a struggle on her hands from the moment the plane touches down.
-          The town is in decline, the local workforce is aging, expensive and will likely oppose her
-          plan every step of the way. 
+          Chrissie knows that she has a struggle on her hands from the moment
+          the plane touches down. The town is in decline, the local workforce is
+          aging, expensive and will likely oppose her plan every step of the
+          way.
         </p>
 
         <p>
-          Set on the Kentish coast, <em>Human Software</em> explores relationship between
-          work and home, the inevitable progress of technology and the choices people face
-          when the world around them begin to change.
+          Set on the Kentish coast, <em>Human Software</em> explores relationship
+          between work and home, the inevitable progress of technology and the choices
+          people face when the world around them begin to change.
         </p>
         <a
           class="humansoftware-text-link"
@@ -83,16 +90,40 @@ const homePath = getRelativeLocaleUrl(locale, "");
     </section>
 
     <section id="buy" class="humansoftware-buy" aria-labelledby="buy-title">
-      <p class="humansoftware-eyebrow">Paperback, ebook and audiobook</p>
-      <h2 id="buy-title">Get <em>Human Software</em></h2>
-      <p class="humansoftware-buy-intro">
-        Choose your preferred format and bookseller.
-      </p>
+      <div class="humansoftware-buy-heading">
+        <p class="humansoftware-eyebrow">Paperback and ebook</p>
+        <h2 id="buy-title">Choose your edition</h2>
+        <p class="humansoftware-buy-intro">
+          Get <em>Human Software</em> in print or digital format.
+        </p>
+      </div>
+      <div class="humansoftware-buy-showcase">
+        <figure class="humansoftware-buy-cover">
+          <img
+            src={getAssetPath("human-software-cover-v4.png")}
+            alt="Current cover of Human Software by Richard W. Bown"
+            loading="lazy"
+          />
+          <figcaption>Current edition</figcaption>
+        </figure>
+        <figure class="humansoftware-buy-map">
+          <img
+            src={getAssetPath("human-software-kent-map.jpg")}
+            alt="Illustrated map of Kent and the Isle of Thanet"
+            loading="lazy"
+          />
+          <figcaption>
+            Includes a map of Kent and the Isle of Thanet in both paperback and
+            ebook.
+          </figcaption>
+        </figure>
+      </div>
       <div class="humansoftware-format-grid">
         <article class="humansoftware-format">
+          <p class="humansoftware-format-label">Print edition</p>
           <h3>Paperback</h3>
-          <p>306 pages · includes a map of Kent and the Isle of Thanet</p>
           <p class="humansoftware-price">£10.99 / €11.99 / $12.99</p>
+          <p>306 pages, with the illustrated map included.</p>
           <div class="humansoftware-retailer-links">
             <a
               href="https://www.waterstones.com/book/human-software/richard-william-bown/9789083469225"
@@ -105,10 +136,46 @@ const homePath = getRelativeLocaleUrl(locale, "");
               rel="noreferrer">Amazon</a
             >
           </div>
+          <details class="humansoftware-more-retailers">
+            <summary>More places to buy</summary>
+            <div class="humansoftware-extra-retailers">
+              <div>
+                <p class="humansoftware-format-label">Paperback</p>
+                <div class="humansoftware-extra-retailer-links">
+                  <a
+                    href="https://www.barnesandnoble.com/w/human-software-richard-w-bown/1148349948?ean=9789083469225"
+                    target="_blank"
+                    rel="noreferrer">Barnes &amp; Noble</a
+                  >
+                  <a
+                    href="https://www.bol.com/nl/nl/p/human-software-a-life-in-i-t-a-novel/9300000242451744/"
+                    target="_blank"
+                    rel="noreferrer">bol.com</a
+                  >
+                  <a
+                    href="https://www.bruna.nl/engelse-boeken/human-software-9789083469225"
+                    target="_blank"
+                    rel="noreferrer">Bruna</a
+                  >
+                  <a
+                    href="https://www.abebooks.com/Human-Software-Life-Novel-Bown-Richard/32320979408/bd"
+                    target="_blank"
+                    rel="noreferrer">AbeBooks</a
+                  >
+                  <a
+                    href="https://www.powells.com/book/human-software-a-life-in-it---a-novel-9789083469225"
+                    target="_blank"
+                    rel="noreferrer">Powell’s</a
+                  >
+                </div>
+              </div>
+            </div>
+          </details>
         </article>
-        <article class="humansoftware-format">
+        <article class="humansoftware-format humansoftware-ebook-format">
+          <p class="humansoftware-format-label">Digital edition</p>
           <h3>Ebook</h3>
-          <p>Available for Kindle and Kobo.</p>
+          <p>Read on Kindle, Kobo and other ebook platforms.</p>
           <div class="humansoftware-retailer-links">
             <a
               href="https://www.amazon.com/Human-Software-Life-I-T-Novel-ebook/dp/B0FR62MGWJ"
@@ -121,23 +188,52 @@ const homePath = getRelativeLocaleUrl(locale, "");
               rel="noreferrer">Kobo</a
             >
           </div>
-        </article>
-        <article class="humansoftware-format">
-          <h3>Audiobook</h3>
-          <p>Listen to <em>Human Software</em> on Apple Books.</p>
-          <div class="humansoftware-retailer-links">
-            <a
-              href="https://books.apple.com/us/audiobook/human-software/id1860011324"
-              target="_blank"
-              rel="noreferrer">Apple Books</a
-            >
-          </div>
+          <details class="humansoftware-more-retailers">
+            <summary>More ebook stores</summary>
+            <p>
+              Also available from other digital bookstores. Search for
+              <em>Human Software</em> by Richard W. Bown.
+            </p>
+          </details>
         </article>
       </div>
       <p class="humansoftware-local-bookshop">
-        Prefer to shop locally? Ask your bookshop to order it using ISBN
-        <strong>9789083469225</strong>.
+        Prefer to shop locally? Ask your bookshop to order the paperback using
+        ISBN <strong>9789083469225</strong>.
       </p>
+      <aside
+        class="humansoftware-original-stock"
+        aria-labelledby="original-cover-title"
+      >
+        <img
+          src={getAssetPath("human-software-original-cover-bookshot.jpg")}
+          alt="Paperback copy of the earlier Human Software edition with its original cover"
+          loading="lazy"
+        />
+        <div>
+          <p class="humansoftware-format-label">
+            Earlier edition · limited stock
+          </p>
+          <h3 id="original-cover-title">Looking for the original cover?</h3>
+          <p>
+            The main listings above are for the current edition. I also have a
+            limited number of earlier paperbacks with the original cover, which
+            I can send directly. Get in touch if you’d prefer one.
+          </p>
+          <div class="humansoftware-retailer-links">
+            <a
+              href="https://bsky.app/profile/bownie.bsky.social"
+              target="_blank"
+              rel="noreferrer">Contact me on Bluesky</a
+            >
+            <a
+              href="https://www.linkedin.com/in/richard-bown/"
+              target="_blank"
+              rel="noreferrer">LinkedIn</a
+            >
+          </div>
+        </div>
+      </aside>
     </section>
 
     <section

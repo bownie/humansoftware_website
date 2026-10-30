@@ -21,8 +21,8 @@ const items = await Promise.all(
       ? "LinkedIn"
       : url.includes("bsky.app")
         ? "Bluesky"
-        : url.includes("hardbittensoftie.com")
-          ? "Hard-Bitten Softie"
+        : url.includes("goodreads.com")
+          ? "Goodreads"
           : null;
     return { url, title, Icon, label };
   })
@@ -37,10 +37,10 @@ const items = await Promise.all(
           {label ? (
             <span class="px-1 text-sm font-medium">{label}</span>
           ) : (
-              <>
-                <Icon class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" />
-                <span class="sr-only">{title}</span>
-              </>
+            <>
+              <Icon class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" />
+              <span class="sr-only">{title}</span>
+            </>
           )}
         </LinkButton>
       ) : null

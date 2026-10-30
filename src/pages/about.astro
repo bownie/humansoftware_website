@@ -30,15 +30,46 @@ const { Content } = await render(about);
   <Breadcrumb />
 
   <Main pageTitle={about.data.title} class="app-prose humansoftware-about">
-    <Content />
-    <a href="https://humansoftwarebook.com" target="_blank">
+    <div class="about-author-grid">
       <img
-        src={getAssetPath("human-software-cover-v4.png")}
-        alt="Human Software book cover"
-        class="mx-auto block w-1/3 max-w-xs rounded-lg shadow-lg"
+        src={getAssetPath("richardwbown-london-rooftop-square-reduced.jpg")}
+        alt="Richard W. Bown on a rooftop in London"
+        class="about-author-image"
       />
-    </a>
+      <div class="about-author-copy">
+        <Content />
+      </div>
+    </div>
   </Main>
 
   <Footer />
 </Layout>
+
+<style>
+  .about-author-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.35fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1.5rem, 5vw, 3rem);
+    max-width: none;
+  }
+
+  .about-author-image {
+    width: min(100%, 280px);
+    margin: 0 auto !important;
+  }
+
+  .about-author-copy > :first-child {
+    margin-top: 0;
+  }
+
+  @media (max-width: 600px) {
+    .about-author-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-author-image {
+      width: min(100%, 240px);
+    }
+  }
+</style>

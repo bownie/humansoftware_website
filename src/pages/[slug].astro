@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+
+export async function getStaticPaths() {
+  const legacyPageIds = new Set([
+    "blog-archive",
+    "book-club",
+    "competition-terms-and-conditions",
+    "contact-me",
+    "gerbach-landing",
+    "how-to-purchase",
+    "in-your-local-bookshop",
+    "praise-for-human-software",
+    "prologue",
+    "thanks-for-signing-up",
+  ]);
+  const pages = await getCollection("pages");
+
+  return pages
+    .filter(page => legacyPageIds.has(page.id))
+    .map(page => ({ params: { slug: page.id } }));
+}
+
+const slug = Astro.params.slug;
+if (!slug) {
+  throw new Error("Missing legacy page route slug");
+}
+
+const pages = await getCollection("pages");
+const page = pages.find(entry => entry.id === slug);
+
+if (!page) {
+  throw new Error(`Missing content entry for legacy page: ${slug}`);
+}
+
+const { Content } = await render(page);
+const canonicalURL = page.data.canonicalURL
+  ? new URL(page.data.canonicalURL, Astro.site).href
+  : undefined;
+---
+
+<Layout
+  title={`${page.data.title} | ${config.site.title}`}
+  description={page.data.description}
+  canonicalURL={canonicalURL}
+>
+  {
+    page.data.noindex && (
+      <meta slot="head" name="robots" content="noindex,follow" />
+    )
+  }
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle={page.data.title}
+    pageDesc={page.data.description}
+    class="app-prose humansoftware-about"
+  >
+    <Content />
+  </Main>
+  <Footer />
+</Layout>

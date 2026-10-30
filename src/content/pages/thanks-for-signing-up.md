@@ -6,6 +6,6 @@ noindex: true
 
 Thanks for signing up to hear about Richard’s books and writing.
 
-- [Explore _Human Software_](/human-software-where-would-you-draw-the-line/)
+- [Explore _Human Software_](/story/)
 - [Get the free book club discussion guide](/book-assets/book-club-guide.pdf)
 - [Find a bookshop or retailer](/#buy)

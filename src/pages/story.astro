@@ -1,0 +1,215 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import { getAssetPath } from "@/utils/withBase";
+
+const pageTitle = "Human Software: Where Would You Draw the Line?";
+const pageDescription =
+  "A novel about work, technology and the human cost of corporate decisions.";
+---
+
+<Layout title={`${pageTitle} | Human Software`} description={pageDescription}>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle={pageTitle}
+    pageDesc={pageDescription}
+    class="humansoftware-about book-overview"
+  >
+    <section class="book-overview-hero" aria-label="About the novel">
+      <img
+        class="book-overview-cover"
+        src={getAssetPath("human-software-cover-v4.png")}
+        alt="Human Software by Richard W. Bown"
+      />
+      <div>
+        <p class="book-overview-question">
+          Should employees always go the extra mile for their employers?
+        </p>
+        <p>
+          <em>Human Software</em> is a novel that explores the delicate relationship
+          between workers and their employers. How smart, intrinsically curious and
+          self-motivated people can be driven to burnout by long hours and overwork.
+          It also shows how strictly hierarchical organisations, accommodating governments
+          and local authorities, can make decisions that affect not only employees
+          but also their families and local and natural environment through technical
+          projects such as data centres and AI usage.
+        </p>
+        <p>
+          Set in the decaying English port town of Sandport, the story follows
+          Beth Walters, an exhausted software engineer nursing failing logistics
+          systems through 3 a.m. support calls, and Chrissie Hegarty, an
+          ambitious American executive sent to force through a massive AI
+          overhaul.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="early-reader-reactions">
+      <h2 id="early-reader-reactions">A few reactions from early readers</h2>
+      <div class="book-overview-quotes">
+        <blockquote>
+          <p>“Freaked me out more than any Stephen King novel.”</p>
+          <cite>Jeremy Markey, Rands Review</cite>
+        </blockquote>
+        <blockquote>
+          <p>
+            “A pacey thriller that throws us right into the maelstrom of the big
+            issues we all face today.”
+          </p>
+          <cite>Verified Amazon reviewer</cite>
+        </blockquote>
+        <blockquote>
+          <p>“Could scarcely be more of the moment.”</p>
+          <cite>Charles Humble, Tech Consultant &amp; Journalist</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="book-overview-book-club" aria-labelledby="book-club">
+      <h2 id="book-club">For Your Engineering Book Club</h2>
+      <p>
+        Explore the human side of software with your engineering team. The book
+        club page has discussion prompts and a free guide to help get the
+        conversation started.
+      </p>
+      <a class="book-overview-button" href="/book-club/">
+        Explore the engineering book club
+      </a>
+    </section>
+
+    <section aria-labelledby="discussion-guide">
+      <h2 id="discussion-guide">Free discussion guide</h2>
+      <p>
+        There’s a free book club discussion guide to go with it — icebreakers,
+        themed questions and workshop prompts built around specific scenes.
+        Useful whether you’re reading this with your actual book club or getting
+        your team to argue about it over lunch.
+      </p>
+      <a
+        class="book-overview-button book-overview-button-secondary"
+        href={getAssetPath("book-assets/book-club-guide.pdf")}
+        >Download the guide</a
+      >
+    </section>
+
+    <section aria-labelledby="bulk-copies">
+      <h2 id="bulk-copies">Bulk copies for teams and book clubs</h2>
+      <p>
+        Copies are available at a discount for groups of 5 or more,
+        first-edition cover included, while stock lasts. The discussion guide
+        comes free with every order.
+      </p>
+      <a class="book-overview-button" href="/contact-me/"
+        >Enquire for bulk pricing</a
+      >
+    </section>
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+  .book-overview-hero {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.35fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 3rem);
+    align-items: start;
+    max-width: none;
+    margin-bottom: 2rem;
+  }
+
+  .book-overview-hero .book-overview-cover {
+    width: min(100%, 250px);
+    margin: 0 auto;
+  }
+
+  .book-overview-hero p:first-child {
+    margin-top: 0;
+  }
+
+  .book-overview-hero p {
+    margin-bottom: 1.25rem;
+  }
+
+  .book-overview-hero p:last-child {
+    margin-bottom: 0;
+  }
+
+  .book-overview-question {
+    color: var(--foreground) !important;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  }
+
+  .book-overview-quotes {
+    display: grid;
+    width: 100%;
+    max-width: 64rem;
+    gap: 1rem;
+    margin-inline: auto;
+  }
+
+  .book-overview-quotes blockquote {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--muted);
+    padding: 1.25rem;
+  }
+
+  .book-overview-quotes blockquote p {
+    margin: 0;
+    color: var(--foreground);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  .book-overview-quotes cite {
+    display: block;
+    margin-top: 0.75rem;
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
+    font-style: normal;
+  }
+
+  .book-overview-author {
+    margin-top: 2rem;
+  }
+
+  .book-overview-button {
+    display: inline-block;
+    margin-top: 0.5rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--accent-foreground) !important;
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .book-overview-button:hover {
+    filter: brightness(0.95);
+  }
+
+  .book-overview-button-secondary {
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--foreground) !important;
+  }
+
+  @media (min-width: 700px) {
+    .book-overview-quotes {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .book-overview-hero {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

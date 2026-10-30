@@ -9,4 +9,4 @@ _Human Software_ is the world where it lives: a wry, unsettling story about the 
 
 ![Current cover of Human Software by Richard W. Bown](/human-software-cover-v4.png)
 
-[Think again — find out more about the book](/human-software-where-would-you-draw-the-line/) or [see how to buy it](/#buy).
+[Think again — find out more about the book](/story/) or [see how to buy it](/#buy).

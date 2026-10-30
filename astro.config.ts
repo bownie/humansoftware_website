@@ -29,6 +29,7 @@ export default defineConfig({
         !page.endsWith("/contact-me/") &&
         !page.endsWith("/how-to-purchase/") &&
         !page.endsWith("/blog-archive/") &&
+        !page.endsWith("/human-software-where-would-you-draw-the-line/") &&
         (config.features?.showArchives !== false ||
           !page.endsWith("/archives/")),
     }),

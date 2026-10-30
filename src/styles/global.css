@@ -205,6 +205,9 @@
     border-radius: 1.75rem;
     padding: clamp(2rem, 6vw, 4.5rem);
   }
+  [data-theme="dark"] .humansoftware-hero {
+    background: #30434a;
+  }
   .humansoftware-hero::after {
     position: absolute;
     inset: 0;
@@ -323,11 +326,24 @@
     font-weight: 700;
   }
   .humansoftware-buy {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     scroll-margin-top: 2rem;
     margin-bottom: 1.5rem;
     border-radius: 1.75rem;
     background: var(--muted);
     padding: clamp(2rem, 6vw, 4rem);
+  }
+  .humansoftware-buy > :not(.humansoftware-contours) {
+    position: relative;
+    z-index: 1;
+  }
+  .humansoftware-buy .humansoftware-contours {
+    z-index: 0;
+  }
+  [data-theme="dark"] .humansoftware-buy {
+    background: #30434a;
   }
   .humansoftware-buy-heading {
     max-width: 42rem;

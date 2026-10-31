@@ -43,9 +43,15 @@ const storyUrl = getRelativeLocaleUrl(locale, "story");
             class="humansoftware-button bg-accent text-accent-foreground inline-block rounded-full px-6 py-3 font-bold"
             href="#buy">Get the book</a
           >
-          <a class="humansoftware-hero-sample" href="/prologue/">
+          <button
+            class="humansoftware-hero-sample"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="sample-dialog"
+            data-open-sample
+          >
             Read a sample
-          </a>
+          </button>
         </div>
         <img
           src={getAssetPath("human-software-v4.jpg")}
@@ -54,6 +60,41 @@ const storyUrl = getRelativeLocaleUrl(locale, "story");
         />
       </div>
     </section>
+
+    <dialog
+      id="sample-dialog"
+      class="humansoftware-sample-dialog"
+      aria-labelledby="sample-dialog-title"
+    >
+      <div class="humansoftware-sample-dialog-header">
+        <h2 id="sample-dialog-title">Read a sample</h2>
+        <button
+          type="button"
+          class="humansoftware-sample-dialog-close"
+          aria-label="Close sample"
+          data-close-sample
+        >
+          Close
+        </button>
+      </div>
+      <iframe
+        title="First three chapters of Human Software"
+        src={getAssetPath(
+          "book-assets/human-software-first-three-chapters-richard-w-bown.pdf"
+        )}></iframe>
+      <p>
+        PDF not displaying?
+        <a
+          href={getAssetPath(
+            "book-assets/human-software-first-three-chapters-richard-w-bown.pdf"
+          )}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open the sample in a new tab
+        </a>
+      </p>
+    </dialog>
 
     <aside class="humansoftware-reader-reaction" aria-label="Reader reaction">
       <blockquote>
@@ -244,3 +285,79 @@ const storyUrl = getRelativeLocaleUrl(locale, "story");
     }
   });
 </script>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const dialog = document.querySelector<HTMLDialogElement>("#sample-dialog");
+    const openButton =
+      document.querySelector<HTMLButtonElement>("[data-open-sample]");
+    const closeButton = document.querySelector<HTMLButtonElement>(
+      "[data-close-sample]"
+    );
+
+    if (!dialog || !openButton || !closeButton) {
+      return;
+    }
+
+    openButton.addEventListener("click", () => dialog.showModal());
+    closeButton.addEventListener("click", () => dialog.close());
+  });
+</script>
+
+<style>
+  .humansoftware-sample-dialog {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: min(64rem, calc(100vw - 2rem));
+    max-width: none;
+    height: min(90dvh, 52rem);
+    max-height: none;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--background);
+    color: var(--foreground);
+    padding: 1rem;
+  }
+
+  .humansoftware-sample-dialog::backdrop {
+    background: rgb(0 0 0 / 70%);
+  }
+
+  .humansoftware-sample-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .humansoftware-sample-dialog-header h2 {
+    margin: 0;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .humansoftware-sample-dialog-close {
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--muted);
+    color: var(--foreground);
+    padding: 0.5rem 1rem;
+  }
+
+  .humansoftware-sample-dialog iframe {
+    display: block;
+    width: 100%;
+    height: calc(100% - 6rem);
+    margin-top: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+  }
+
+  .humansoftware-sample-dialog > p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+  }
+</style>

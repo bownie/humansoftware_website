@@ -25,6 +25,7 @@ export default defineConfig({
   redirects: {
     "/reviews": { destination: "/story/#reviews", status: 301 },
     "/praise": { destination: "/story/#reviews", status: 301 },
+    "/prologue": { destination: "/", status: 301 },
   },
   integrations: [
     mdx(),

@@ -34,5 +34,5 @@ The novel works well for engineering team book clubs, leadership discussions, AI
 ## Discussion resources
 
 - [Download the free book club discussion guide](/book-assets/book-club-guide.pdf)
-- [Download a free sample of the first three chapters](/book-assets/first-three-chapters.pdf)
+- [Download a free sample of the first three chapters](/book-assets/human-software-first-three-chapters-richard-w-bown.pdf)
 - [Order paperback and ebook editions](/#buy)

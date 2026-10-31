@@ -281,12 +281,18 @@
     filter: brightness(0.95);
   }
   .humansoftware-hero-sample {
-    display: inline-block;
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
     margin-left: 1rem;
+    border: 0;
+    background: transparent;
     color: var(--foreground);
+    padding: 0;
     font-weight: 700;
     text-decoration-color: var(--sea);
     text-underline-offset: 0.25em;
+    cursor: pointer;
   }
   .humansoftware-when {
     margin: 0.9rem 0 0;

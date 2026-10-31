@@ -9,6 +9,62 @@ import { getAssetPath } from "@/utils/withBase";
 const pageTitle = "Human Software: Where Would You Draw the Line?";
 const pageDescription =
   "Discover the story of Beth Walters and Chrissie Hegarty, caught in a high-stakes fight over AI, work and the people behind the systems.";
+
+const endorsements = [
+  {
+    quote: "Freaked me out more than any Stephen King novel.",
+    name: "Jeremy Markey",
+    source: "Rands Review",
+  },
+  {
+    quote: "Could scarcely be more of the moment.",
+    name: "Charles Humble",
+    source: "Tech Consultant & Journalist",
+  },
+  {
+    quote: "David versus Goliath in the age of AI. A real page-turner.",
+    name: "Susanne Kaiser",
+    source: "Tech Consultant",
+  },
+  {
+    quote:
+      "Vivid world-building and well-rounded characters. I found myself completely hooked.",
+    name: "Russell McLean",
+    source: "Emmy and BAFTA Award-Winning Producer",
+  },
+  {
+    quote: "Absolutely gripping! A must-read.",
+    name: "Lovdeep Pannu",
+    source: "CTO, Epicenter",
+  },
+  {
+    quote:
+      "A pacey thriller that throws us right into the maelstrom of the big issues we all face today.",
+    name: "Jan Hartman",
+    source: "Lead Advisor, IT Strategy & Policy, Dutch Judiciary",
+  },
+];
+
+const longerReviews = [
+  {
+    name: "Jeremy Markey",
+    source: "LinkedIn and Rands Slack Book Reviewer",
+    quote:
+      "Human Software is a genuine, heartfelt novel that lets us see what it might be like for technical teams when AI tools are introduced — and one I won’t forget anytime soon. The anxiety around AI and its negative implications are front and center. The characters, the events, the tension, the scenarios — all feel authentic. While normally that’s good news, Human Software felt a little too real.",
+  },
+  {
+    name: "Charles Humble",
+    source: "Tech Consultant & Journalist",
+    quote:
+      "A proper page turner — part thriller, part whodunnit and a fine dystopian parable. It makes serious points about generative AI, globalisation and dehumanisation at work whilst also being something you could happily read on a beach. As well as savouring the book, I suspect many readers will wince with recognition.",
+  },
+  {
+    name: "Jan Hartman",
+    source: "Lead Advisor, IT Strategy & Policy, Dutch Judiciary",
+    quote:
+      "A pacey thriller that throws us right into the maelstrom of the big issues we all face today. This book builds tension through to a powerful crescendo finale — a real page-turner, with sharp observational phrasing that pops off the page. An accomplished debut and a refreshing read.",
+  },
+];
 ---
 
 <Layout title={`${pageTitle} | Human Software`} description={pageDescription}>
@@ -22,7 +78,7 @@ const pageDescription =
     <section class="book-overview-hero" aria-label="About the novel">
       <img
         class="book-overview-cover"
-        src={getAssetPath("human-software-cover-v4.png")}
+        src={getAssetPath("human-software-v4.jpg")}
         alt="Human Software by Richard W. Bown"
       />
       <div>
@@ -44,16 +100,37 @@ const pageDescription =
       </div>
     </section>
 
-    <section aria-labelledby="early-reader-reactions">
-      <h2 id="early-reader-reactions">A reader’s reaction</h2>
+    <section
+      id="reviews"
+      class="book-overview-reviews"
+      aria-labelledby="reviews-title"
+    >
+      <h2 id="reviews-title">Reviews</h2>
       <div class="book-overview-quotes">
-        <blockquote>
-          <p>
-            “A pacey thriller that throws us right into the maelstrom of the big
-            issues we all face today.”
-          </p>
-          <cite>Jan Hartman, Lead Advisor, Dutch Judiciary</cite>
-        </blockquote>
+        {
+          endorsements.map(endorsement => (
+            <figure class="book-overview-quote">
+              <blockquote>“{endorsement.quote}”</blockquote>
+              <figcaption>
+                <strong>{endorsement.name}</strong> — {endorsement.source}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+      <h3>Read more</h3>
+      <div class="book-overview-long-reviews">
+        {
+          longerReviews.map(review => (
+            <details>
+              <summary>
+                Read more — {review.name} <span aria-hidden="true">+</span>
+              </summary>
+              <blockquote>“{review.quote}”</blockquote>
+              <p>{review.source}</p>
+            </details>
+          ))
+        }
       </div>
     </section>
 
@@ -63,14 +140,20 @@ const pageDescription =
         A free discussion guide with questions and workshop prompts exploring
         the human side of software.
       </p>
-      <a class="book-overview-button" href="/book-club/">
-        Explore the engineering book club
-      </a>
-      <p class="book-overview-book-club-link">
-        <a href={getAssetPath("book-assets/book-club-guide.pdf")}>
+      <div class="book-overview-actions">
+        <a
+          class="book-overview-button"
+          href={getAssetPath("book-assets/book-club-guide.pdf")}
+        >
           Download the free discussion guide
         </a>
-      </p>
+        <a
+          class="book-overview-button book-overview-secondary-button"
+          href="/book-club/"
+        >
+          Explore the engineering book club
+        </a>
+      </div>
       <p class="book-overview-bulk">
         Bulk orders of five or more are available at a discount, with the
         discussion guide included. Get in touch through the social links in the
@@ -108,6 +191,10 @@ const pageDescription =
     margin-bottom: 0;
   }
 
+  .book-overview-hero > div > p:not(.book-overview-question) {
+    color: var(--muted-foreground);
+  }
+
   .book-overview-question {
     color: var(--foreground) !important;
     font-family: "Fraunces", Georgia, serif;
@@ -117,12 +204,10 @@ const pageDescription =
   .book-overview-quotes {
     display: grid;
     width: 100%;
-    max-width: 64rem;
     gap: 1rem;
-    margin-inline: auto;
   }
 
-  .book-overview-quotes blockquote {
+  .book-overview-quote {
     margin: 0;
     border: 1px solid var(--border);
     border-radius: 1rem;
@@ -130,7 +215,7 @@ const pageDescription =
     padding: 1.25rem;
   }
 
-  .book-overview-quotes blockquote p {
+  .book-overview-quote blockquote {
     margin: 0;
     color: var(--foreground);
     font-family: "Fraunces", Georgia, serif;
@@ -138,32 +223,91 @@ const pageDescription =
     font-style: italic;
   }
 
-  .book-overview-quotes cite {
+  .book-overview-quote figcaption {
     display: block;
     margin-top: 0.75rem;
     color: var(--muted-foreground);
     font-size: 0.95rem;
-    font-style: normal;
+  }
+
+  .book-overview-quote figcaption strong {
+    color: var(--foreground);
+  }
+
+  .book-overview-quote:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .book-overview-reviews h3 {
+    margin: 2rem 0 1rem;
+    color: var(--foreground);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .book-overview-long-reviews {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .book-overview-long-reviews details {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--muted);
+    padding: 1rem 1.25rem;
+  }
+
+  .book-overview-long-reviews summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--foreground);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .book-overview-long-reviews details[open] summary span {
+    transform: rotate(45deg);
+  }
+
+  .book-overview-long-reviews blockquote {
+    margin: 1rem 0 0;
+    color: var(--foreground);
+  }
+
+  .book-overview-long-reviews details > p {
+    margin: 1rem 0 0;
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
   }
 
   .book-overview-button {
-    display: inline-block;
-    margin-top: 0.5rem;
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
     border-radius: 999px;
     background: var(--accent);
-    color: var(--accent-foreground) !important;
+    color: #13222a !important;
     padding: 0.75rem 1.25rem;
     font-weight: 700;
     text-decoration: none;
+  }
+
+  .book-overview-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .book-overview-button:hover {
     filter: brightness(0.95);
   }
 
-  .book-overview-book-club-link {
-    margin: 1rem 0 0;
-    font-size: 0.95rem;
+  .book-overview-secondary-button {
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--foreground) !important;
   }
 
   .book-overview-bulk {
@@ -174,7 +318,7 @@ const pageDescription =
 
   @media (min-width: 700px) {
     .book-overview-quotes {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 

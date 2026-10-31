@@ -9,6 +9,7 @@ import { getAssetPath } from "@/utils/withBase";
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const homePath = getRelativeLocaleUrl(locale, "");
+const storyUrl = getRelativeLocaleUrl(locale, "story");
 ---
 
 <Layout>
@@ -47,31 +48,43 @@ const homePath = getRelativeLocaleUrl(locale, "");
           </a>
         </div>
         <img
-          src={getAssetPath("human-software-cover-v4.png")}
+          src={getAssetPath("human-software-v4.jpg")}
           alt="Human Software book cover"
           class="humansoftware-cover"
         />
       </div>
     </section>
 
+    <aside class="humansoftware-reader-reaction" aria-label="Reader reaction">
+      <blockquote>
+        <p>“Freaked me out more than any Stephen King novel.”</p>
+        <cite>Jeremy Markey, Rands Review</cite>
+      </blockquote>
+      <a href={`${storyUrl}#reviews`}>Read more reviews</a>
+    </aside>
+
     <section class="humansoftware-story-section" aria-labelledby="story-title">
-      <div class="humansoftware-story">
+      <article class="humansoftware-story-card">
         <p class="humansoftware-eyebrow">
           Software runs our world. It doesn’t rule our lives
         </p>
-        <h2 id="story-title">The Systems are Human</h2>
+        <h2 id="story-title">
+          When a company’s AI overhaul threatens a town’s livelihoods, how far
+          will its people go to protect one another?
+        </h2>
         <p>
-          In Sandport, an ambitious AI overhaul puts livelihoods and a fragile
-          logistics network under pressure. The people behind the systems have
-          more at stake than the boardroom realises.
+          In Sandport, software engineer Beth Walters keeps a failing logistics
+          system running through punishing night shifts.
         </p>
-        <a
-          class="humansoftware-text-link"
-          href={getRelativeLocaleUrl(locale, "story")}
-        >
-          Read the story
-        </a>
-      </div>
+        <p>
+          Chrissie Hegarty arrives from America with a sweeping AI overhaul that
+          could make Beth and her colleagues redundant. Then a data leak and a
+          murder investigation reveal a plan to use AI to sabotage the company’s
+          own systems and frame its employees. Beth and Chrissie must decide
+          what they owe the company — and the people caught in its plans.
+        </p>
+        <a class="humansoftware-text-link" href={storyUrl}> Read the story </a>
+      </article>
     </section>
 
     <section id="buy" class="humansoftware-buy" aria-labelledby="buy-title">
@@ -83,14 +96,11 @@ const homePath = getRelativeLocaleUrl(locale, "");
       <div class="humansoftware-buy-heading">
         <p class="humansoftware-eyebrow">Paperback and ebook</p>
         <h2 id="buy-title">Choose your edition</h2>
-        <p class="humansoftware-buy-intro">
-          The illustrated map is included in both editions.
-        </p>
       </div>
       <div class="humansoftware-buy-showcase">
         <figure class="humansoftware-buy-cover">
           <img
-            src={getAssetPath("human-software-cover-v4.png")}
+            src={getAssetPath("human-software-v4.jpg")}
             alt="Current cover of Human Software by Richard W. Bown"
             loading="lazy"
           />
@@ -101,6 +111,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
             alt="Illustrated map of Kent and the Isle of Thanet"
             loading="lazy"
           />
+          <figcaption>Illustrated map included in both editions</figcaption>
         </figure>
       </div>
       <div class="humansoftware-format-grid">
@@ -201,13 +212,21 @@ const homePath = getRelativeLocaleUrl(locale, "");
       </div>
     </details>
 
+    <aside class="humansoftware-reading-groups">
+      <p>
+        <a href={`${storyUrl}#reading-groups`}>
+          For reading groups and teams
+        </a>
+      </p>
+    </aside>
+
     <section
       id="join"
       class="humansoftware-signup mb-16 sm:mb-20"
       aria-label="Newsletter signup"
     >
       <NewsletterSignup
-        title="Sign up to stay informed"
+        title="Get news of the next book"
         description="Join my newsletter for writing updates and news about my books."
       />
     </section>

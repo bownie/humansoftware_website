@@ -5,4 +5,4 @@ canonicalURL: "/praise/"
 noindex: true
 ---
 
-This page has moved. [Read reviews of Human Software](/praise/).
+This page has moved. [Read reviews of Human Software](/story/#reviews).

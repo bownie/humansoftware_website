@@ -8,7 +8,7 @@ export default defineAstroPaperConfig({
     description: "A story about ambition, loyalty and the people behind the systems we build.",
     author: "Richard Bown",
     profile: "https://humansoftwarebook.com",
-    ogImage: "human-software-cover-v4.png",
+    ogImage: "human-software-v4.jpg",
     lang: "en",
     timezone: "Europe/Amsterdam",
     dir: "ltr",

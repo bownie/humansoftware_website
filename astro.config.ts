@@ -22,6 +22,10 @@ const base = process.env.ASTRO_BASE || "/";
 export default defineConfig({
   site: config.site.url,
   base,
+  redirects: {
+    "/reviews": { destination: "/story/#reviews", status: 301 },
+    "/praise": { destination: "/story/#reviews", status: 301 },
+  },
   integrations: [
     mdx(),
     sitemap({

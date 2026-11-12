@@ -10,6 +10,9 @@ import { getAssetPath } from "@/utils/withBase";
 const locale = Astro.currentLocale ?? config.site.lang;
 const homePath = getRelativeLocaleUrl(locale, "");
 const storyUrl = getRelativeLocaleUrl(locale, "story");
+const samplePdfUrl = `${getAssetPath(
+  "book-assets/human-software-first-three-chapters-richard-w-bown.pdf"
+)}#view=FitH`;
 ---
 
 <Layout>
@@ -54,7 +57,7 @@ const storyUrl = getRelativeLocaleUrl(locale, "story");
           </button>
         </div>
         <img
-          src={getAssetPath("human-software-v4.jpg")}
+          src={getAssetPath("human-software-cover-v5.jpg")}
           alt="Human Software book cover"
           class="humansoftware-cover"
         />
@@ -77,20 +80,11 @@ const storyUrl = getRelativeLocaleUrl(locale, "story");
           Close
         </button>
       </div>
-      <iframe
-        title="First three chapters of Human Software"
-        src={getAssetPath(
-          "book-assets/human-software-first-three-chapters-richard-w-bown.pdf"
-        )}></iframe>
+      <iframe title="First three chapters of Human Software" src={samplePdfUrl}
+      ></iframe>
       <p>
         PDF not displaying?
-        <a
-          href={getAssetPath(
-            "book-assets/human-software-first-three-chapters-richard-w-bown.pdf"
-          )}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={samplePdfUrl} target="_blank" rel="noreferrer">
           Open the sample in a new tab
         </a>
       </p>
@@ -141,7 +135,7 @@ const storyUrl = getRelativeLocaleUrl(locale, "story");
       <div class="humansoftware-buy-showcase">
         <figure class="humansoftware-buy-cover">
           <img
-            src={getAssetPath("human-software-v4.jpg")}
+            src={getAssetPath("human-software-cover-v5.jpg")}
             alt="Current cover of Human Software by Richard W. Bown"
             loading="lazy"
           />

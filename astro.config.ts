@@ -25,6 +25,19 @@ export default defineConfig({
   redirects: {
     "/reviews": { destination: "/story/#reviews", status: 301 },
     "/praise": { destination: "/story/#reviews", status: 301 },
+    "/praise-for-human-software": {
+      destination: "/story/#reviews",
+      status: 301,
+    },
+    "/how-human-software-got-its-look": { destination: "/", status: 301 },
+    "/what-ive-learned-six-weeks-after-publishing-human-software": {
+      destination: "/",
+      status: 301,
+    },
+    "/human-software-a-novel-for-tech-workers": {
+      destination: "/story",
+      status: 301,
+    },
     "/prologue": { destination: "/", status: 301 },
   },
   integrations: [

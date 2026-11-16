@@ -30,6 +30,10 @@ export default defineConfig({
       status: 301,
     },
     "/how-human-software-got-its-look": { destination: "/", status: 301 },
+    "/using-ai-in-combination-with-drawing-to-make-book-illustrations": {
+      destination: "/",
+      status: 301,
+    },
     "/what-ive-learned-six-weeks-after-publishing-human-software": {
       destination: "/",
       status: 301,

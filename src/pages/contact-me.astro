@@ -14,7 +14,7 @@ const aboutUrl = getAssetPath("about/");
     <link rel="canonical" href={new URL(aboutUrl, Astro.site)} />
     <title>Redirecting to About</title>
   </head>
-  <body data-pagefind-ignore>
+  <body>
     <p>This page has moved to <a href={aboutUrl}>About Richard</a>.</p>
   </body>
 </html>

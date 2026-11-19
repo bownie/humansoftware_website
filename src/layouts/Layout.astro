@@ -49,7 +49,10 @@ const rssHref = getRelativeLocaleUrl(
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font -->
     <Font
@@ -115,55 +118,53 @@ const rssHref = getRelativeLocaleUrl(
       )
     }
 
-    {
-      site.googleTagId && (
-        <script is:inline define:vars={{ googleTagId: site.googleTagId }}>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            window.dataLayer.push(arguments);
+    <script is:inline define:vars={{ googleTagId: site.googleTagId }}>
+      if (googleTagId) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          window.dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+
+        // Consent Mode v2: nothing is stored or sent until the visitor agrees.
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "granted",
+          security_storage: "granted",
+        });
+
+        (function () {
+          var loaded = false;
+
+          function loadAnalytics() {
+            if (loaded) return;
+            loaded = true;
+
+            var script = document.createElement("script");
+            script.async = true;
+            script.src =
+              "https://www.googletagmanager.com/gtag/js?id=" + googleTagId;
+            document.head.appendChild(script);
+
+            gtag("js", new Date());
+            gtag("config", googleTagId, { anonymize_ip: true });
           }
-          window.gtag = gtag;
 
-          // Consent Mode v2: nothing is stored or sent until the visitor agrees.
-          gtag("consent", "default", {
-            ad_storage: "denied",
-            ad_user_data: "denied",
-            ad_personalization: "denied",
-            analytics_storage: "denied",
-            functionality_storage: "granted",
-            security_storage: "granted",
-          });
+          window.hsbConsent = { loadAnalytics: loadAnalytics };
 
-          (function () {
-            var loaded = false;
-
-            function loadAnalytics() {
-              if (loaded) return;
-              loaded = true;
-
-              var script = document.createElement("script");
-              script.async = true;
-              script.src =
-                "https://www.googletagmanager.com/gtag/js?id=" + googleTagId;
-              document.head.appendChild(script);
-
-              gtag("js", new Date());
-              gtag("config", googleTagId, { anonymize_ip: true });
+          try {
+            if (localStorage.getItem("hsb-consent") === "granted") {
+              loadAnalytics();
             }
-
-            window.hsbConsent = { loadAnalytics: loadAnalytics };
-
-            try {
-              if (localStorage.getItem("hsb-consent") === "granted") {
-                loadAnalytics();
-              }
-            } catch (error) {
-              // Blocked storage means no consent, so analytics stays off.
-            }
-          })();
-        </script>
-      )
-    }
+          } catch (error) {
+            // Blocked storage means no consent, so analytics stays off.
+          }
+        })();
+      }
+    </script>
 
     <!--
       Inline FOUC-prevention script: sets data-theme on <html> before

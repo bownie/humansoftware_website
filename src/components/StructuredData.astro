@@ -7,8 +7,11 @@ type Props = {
   canonicalURL: string;
 };
 
-const { title, description = config.site.description, canonicalURL } =
-  Astro.props;
+const {
+  title,
+  description = config.site.description,
+  canonicalURL,
+} = Astro.props;
 
 const origin = new URL(config.site.url).origin;
 const homeUrl = `${origin}/`;
@@ -98,7 +101,4 @@ const graph = [
 const structuredData = { "@context": "https://schema.org", "@graph": graph };
 ---
 
-<script
-  type="application/ld+json"
-  set:html={JSON.stringify(structuredData)}
-/>
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

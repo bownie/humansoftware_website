@@ -47,13 +47,33 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: page =>
-        !page.endsWith("/contact-me/") &&
-        !page.endsWith("/how-to-purchase/") &&
-        !page.endsWith("/blog-archive/") &&
-        !page.endsWith("/human-software-where-would-you-draw-the-line/") &&
-        (config.features?.showArchives !== false ||
-          !page.endsWith("/archives/")),
+      filter: page => {
+        const path = new URL(page).pathname;
+
+        // Assets and machine routes are not pages.
+        if (/\.(png|jpe?g|svg|pdf|xml|txt|json)$/i.test(path)) return false;
+
+        // noindex stubs and redirects should never be advertised to crawlers.
+        const excluded = [
+          "/contact-me/",
+          "/how-to-purchase/",
+          "/blog-archive/",
+          "/human-software-where-would-you-draw-the-line/",
+          "/thanks-for-signing-up/",
+          "/search/",
+        ];
+
+        if (excluded.some(entry => path.endsWith(entry))) return false;
+
+        if (
+          config.features?.showArchives === false &&
+          path.endsWith("/archives/")
+        ) {
+          return false;
+        }
+
+        return true;
+      },
     }),
   ],
   i18n: {
@@ -87,8 +107,8 @@ export default defineConfig({
       provider: fontProviders.google(),
       fallbacks: ["monospace"],
       weights: [300, 400, 500, 600, 700],
-      styles: ["normal", "italic"],
-      formats: ["woff", "ttf"],
+      styles: ["normal"],
+      formats: ["woff"],
     },
   ],
   env: {

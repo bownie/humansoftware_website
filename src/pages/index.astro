@@ -57,9 +57,15 @@ const samplePdfUrl = `${getAssetPath(
           </button>
         </div>
         <img
-          src={getAssetPath("human-software-cover-v6.jpg")}
+          src={getAssetPath("human-software-cover-480.jpg")}
+          srcset={`${getAssetPath("human-software-cover-320.jpg")} 320w, ${getAssetPath("human-software-cover-480.jpg")} 480w, ${getAssetPath("human-software-cover-640.jpg")} 640w`}
+          sizes="(min-width: 761px) 290px, 200px"
+          width="480"
+          height="760"
           alt="Human Software book cover"
           class="humansoftware-cover"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
     </section>
@@ -80,7 +86,11 @@ const samplePdfUrl = `${getAssetPath(
           Close
         </button>
       </div>
-      <iframe title="First three chapters of Human Software" src={samplePdfUrl}
+      <iframe
+        title="First three chapters of Human Software"
+        src="about:blank"
+        data-sample-src={samplePdfUrl}
+        loading="lazy"
       ></iframe>
       <p>
         PDF not displaying?
@@ -135,16 +145,26 @@ const samplePdfUrl = `${getAssetPath(
       <div class="humansoftware-buy-showcase">
         <figure class="humansoftware-buy-cover">
           <img
-            src={getAssetPath("human-software-cover-v6.jpg")}
+            src={getAssetPath("human-software-cover-480.jpg")}
+            srcset={`${getAssetPath("human-software-cover-320.jpg")} 320w, ${getAssetPath("human-software-cover-480.jpg")} 480w, ${getAssetPath("human-software-cover-640.jpg")} 640w`}
+            sizes="(min-width: 761px) 267px, 213px"
+            width="480"
+            height="760"
             alt="Current cover of Human Software by Richard W. Bown"
             loading="lazy"
+            decoding="async"
           />
         </figure>
         <figure class="humansoftware-buy-map">
           <img
-            src={getAssetPath("human-software-kent-map.jpg")}
+            src={getAssetPath("human-software-kent-map-740.jpg")}
+            srcset={`${getAssetPath("human-software-kent-map-400.jpg")} 400w, ${getAssetPath("human-software-kent-map-740.jpg")} 740w, ${getAssetPath("human-software-kent-map.jpg")} 1024w`}
+            sizes="(min-width: 761px) 400px, 290px"
+            width="740"
+            height="498"
             alt="Illustrated map of Kent and the Isle of Thanet"
             loading="lazy"
+            decoding="async"
           />
           <figcaption>Illustrated map included in both editions</figcaption>
         </figure>
@@ -235,9 +255,14 @@ const samplePdfUrl = `${getAssetPath(
       <summary>Earlier edition · limited stock</summary>
       <div>
         <img
-          src={getAssetPath("human-software-original-cover-bookshot.jpg")}
+          src={getAssetPath("human-software-original-cover-bookshot-720.jpg")}
+          srcset={`${getAssetPath("human-software-original-cover-bookshot-480.jpg")} 480w, ${getAssetPath("human-software-original-cover-bookshot-720.jpg")} 720w, ${getAssetPath("human-software-original-cover-bookshot.jpg")} 1024w`}
+          sizes="(min-width: 761px) 320px, 220px"
+          width="720"
+          height="540"
           alt="Paperback copy of the earlier Human Software edition with its original cover"
           loading="lazy"
+          decoding="async"
         />
         <p>
           A limited number of earlier paperbacks with the original cover are
@@ -293,7 +318,15 @@ const samplePdfUrl = `${getAssetPath(
       return;
     }
 
-    openButton.addEventListener("click", () => dialog.showModal());
+    openButton.addEventListener("click", () => {
+      // The sample PDF is only fetched once the reader actually asks for it.
+      const frame = dialog.querySelector("iframe");
+      const sampleSrc = frame?.dataset.sampleSrc;
+      if (frame && sampleSrc && frame.getAttribute("src") === "about:blank") {
+        frame.setAttribute("src", sampleSrc);
+      }
+      dialog.showModal();
+    });
     closeButton.addEventListener("click", () => dialog.close());
   });
 </script>

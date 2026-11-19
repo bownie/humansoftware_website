@@ -44,5 +44,27 @@ const currentYear = new Date().getFullYear();
     <a href={getRelativeLocaleUrl(locale, "competition-terms-and-conditions")}>
       Competition Terms
     </a>
+    <a href={getRelativeLocaleUrl(locale, "privacy")}>Privacy</a>
+    <button
+      type="button"
+      class="humansoftware-footer-consent"
+      data-consent-reset
+      aria-label="Review your cookie choice"
+    >
+      Cookie settings
+    </button>
   </nav>
 </footer>
+
+<style>
+  .humansoftware-footer-consent {
+    color: var(--muted-foreground);
+    font-size: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .humansoftware-footer-consent:hover {
+    color: var(--accent);
+  }
+</style>

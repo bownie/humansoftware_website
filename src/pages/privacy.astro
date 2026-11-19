@@ -1,0 +1,170 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+
+const pageTitle = "Privacy and Cookies";
+const pageDescription =
+  "How Richard W. Bown handles your data on humansoftwarebook.com: analytics cookies, the newsletter, hosting logs and your rights.";
+---
+
+<Layout
+  title={`${pageTitle} | Human Software`}
+  description={pageDescription}
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle={pageTitle}
+    pageDesc="What I collect, why, and how to say no."
+    class="app-prose humansoftware-privacy"
+  >
+    <p><em>Last updated 19 November 2026.</em></p>
+
+    <h2 id="who">Who is responsible</h2>
+    <p>
+      This site is run by Richard W. Bown, who is the data controller for it.
+      You can reach me at
+      <a href="mailto:me@richardbown.com">me@richardbown.com</a> about anything
+      on this page.
+    </p>
+
+    <h2 id="analytics">Analytics cookies</h2>
+    <p>
+      I use Google Analytics 4 (Google Ireland Limited, with Google LLC in the
+      United States) to understand which pages people read and which links they
+      follow. It is the only tracking on this site.
+    </p>
+    <p>
+      <strong>Nothing is loaded until you agree.</strong> On your first visit,
+      the analytics script is not requested at all. If you accept, Google
+      Analytics sets the following cookies:
+    </p>
+    <ul>
+      <li>
+        <code>_ga</code> — tells one browser apart from another. Expires after
+        two years.
+      </li>
+      <li>
+        <code>_ga_T9GQ4H4N86</code> — keeps a session’s state. Expires after two
+        years.
+      </li>
+    </ul>
+    <p>
+      I do not use advertising or remarketing cookies, I do not build profiles
+      across other websites, and I do not sell or share data with anyone.
+      Analytics is configured with IP anonymisation.
+    </p>
+    <p>
+      Your choice is remembered in your browser’s local storage under the key
+      <code>hsb-consent</code>. That key is not a cookie and is not sent to me.
+    </p>
+    <p>
+      <button
+        type="button"
+        class="privacy-consent-button"
+        data-consent-reset
+      >
+        Change your cookie choice
+      </button>
+    </p>
+
+    <h2 id="newsletter">The newsletter</h2>
+    <p>
+      If you sign up for the newsletter, the email address you enter is stored
+      by <a href="https://www.mailerlite.com/" rel="noreferrer">MailerLite</a>,
+      which sends the emails on my behalf. The signup form on this site is
+      provided by MailerLite and loads when the page loads, so MailerLite may
+      see your IP address and set its own functional cookies even if you do not
+      submit the form.
+    </p>
+    <p>
+      I use your address only to send you news about my books and writing. Every
+      email has an unsubscribe link, and unsubscribing removes you from the
+      list. MailerLite keeps a suppression record so you are not added again by
+      accident.
+    </p>
+
+    <h2 id="hosting">Hosting and server logs</h2>
+    <p>
+      The site is served by GitHub Pages (GitHub, Inc.), behind the Fastly
+      content delivery network. Like any web host, they keep short-lived
+      technical logs that include IP addresses, for security and to keep the
+      site online. I do not receive or analyse those logs.
+    </p>
+
+    <h2 id="basis">Why I am allowed to do this</h2>
+    <ul>
+      <li>
+        <strong>Consent</strong> for analytics cookies and for the newsletter.
+        You can withdraw either at any time.
+      </li>
+      <li>
+        <strong>Legitimate interests</strong> for keeping the site secure and
+        working.
+      </li>
+    </ul>
+
+    <h2 id="retention">How long I keep things</h2>
+    <p>
+      Analytics data is kept for 14 months. Newsletter details are kept until
+      you unsubscribe. Emails you send me are kept only as long as needed to
+      answer you.
+    </p>
+
+    <h2 id="transfers">Where your data goes</h2>
+    <p>
+      Google, MailerLite, GitHub and Fastly may process data outside the UK and
+      the European Economic Area, including in the United States. Those
+      transfers rely on the UK International Data Transfer Addendum and the
+      European Commission’s Standard Contractual Clauses.
+    </p>
+
+    <h2 id="rights">Your rights</h2>
+    <p>
+      You can ask for a copy of your data, ask me to correct or delete it, ask
+      me to restrict or stop processing it, or object to processing. Email
+      <a href="mailto:me@richardbown.com">me@richardbown.com</a> and I will
+      respond within one month.
+    </p>
+    <p>
+      If you are unhappy with how I have handled your data, you can complain to
+      the Information Commissioner’s Office in the UK
+      (<a href="https://ico.org.uk/" rel="noreferrer">ico.org.uk</a>) or, if you
+      live in the Netherlands, to the Autoriteit Persoonsgegevens
+      (<a href="https://www.autoriteitpersoonsgegevens.nl/" rel="noreferrer"
+        >autoriteitpersoonsgegevens.nl</a
+      >).
+    </p>
+
+    <h2 id="children">Children</h2>
+    <p>
+      This site is not directed at children and I do not knowingly collect data
+      from them.
+    </p>
+
+    <h2 id="changes">Changes</h2>
+    <p>
+      If this policy changes, the date at the top will change with it.
+    </p>
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+  .privacy-consent-button {
+    min-height: 44px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--foreground);
+    padding: 0.6rem 1.1rem;
+    font-weight: 600;
+  }
+
+  .privacy-consent-button:hover {
+    background: var(--muted);
+  }
+</style>

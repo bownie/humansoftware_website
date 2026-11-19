@@ -9,7 +9,7 @@ const homeUrl = getAssetPath("");
 <html lang={config.site.lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex,follow" />
     <meta http-equiv="refresh" content={`0;url=${homeUrl}`} />
     <link rel="canonical" href={new URL(homeUrl, Astro.site)} />
     <title>Redirecting to Home</title>

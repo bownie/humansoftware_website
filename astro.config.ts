@@ -57,22 +57,11 @@ export default defineConfig({
         const excluded = [
           "/contact-me/",
           "/how-to-purchase/",
-          "/blog-archive/",
           "/human-software-where-would-you-draw-the-line/",
           "/thanks-for-signing-up/",
-          "/search/",
         ];
 
-        if (excluded.some(entry => path.endsWith(entry))) return false;
-
-        if (
-          config.features?.showArchives === false &&
-          path.endsWith("/archives/")
-        ) {
-          return false;
-        }
-
-        return true;
+        return !excluded.some(entry => path.endsWith(entry));
       },
     }),
   ],
@@ -107,6 +96,24 @@ export default defineConfig({
       provider: fontProviders.google(),
       fallbacks: ["monospace"],
       weights: [300, 400, 500, 600, 700],
+      styles: ["normal"],
+      formats: ["woff"],
+    },
+    {
+      name: "DM Sans",
+      cssVariable: "--font-dm-sans",
+      provider: fontProviders.google(),
+      fallbacks: ["sans-serif"],
+      weights: [400, 500, 600, 700],
+      styles: ["normal"],
+      formats: ["woff"],
+    },
+    {
+      name: "Fraunces",
+      cssVariable: "--font-fraunces",
+      provider: fontProviders.google(),
+      fallbacks: ["Georgia", "serif"],
+      weights: [400, 500, 600],
       styles: ["normal"],
       formats: ["woff"],
     },

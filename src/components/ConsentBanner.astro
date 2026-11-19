@@ -1,0 +1,190 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import config from "@/config";
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const privacyUrl = getRelativeLocaleUrl(locale, "privacy");
+---
+
+<div
+  id="consent-banner"
+  class="consent-banner"
+  role="region"
+  aria-label="Cookie consent"
+  hidden
+>
+  <div class="consent-banner__inner">
+    <p class="consent-banner__copy">
+      I use Google Analytics to see which pages people read. Nothing loads until
+      you say yes.
+      <a href={privacyUrl}>How I handle your data</a>.
+    </p>
+    <div class="consent-banner__actions">
+      <button
+        type="button"
+        class="consent-banner__button consent-banner__button--accept"
+        data-consent="granted">Accept analytics</button
+      >
+      <button type="button" class="consent-banner__button" data-consent="denied"
+        >Decline</button
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .consent-banner {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 60;
+    padding: 0.75rem;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .consent-banner[hidden] {
+    display: none;
+  }
+
+  .consent-banner__inner {
+    display: flex;
+    max-width: 60rem;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--background);
+    box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 18%);
+    padding: 0.9rem 1.1rem;
+  }
+
+  .consent-banner__copy {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .consent-banner__copy a {
+    color: var(--accent);
+  }
+
+  .consent-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .consent-banner__button {
+    min-height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--muted);
+    color: var(--foreground);
+    padding: 0.45rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .consent-banner__button--accept {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #13222a;
+  }
+
+  @media (min-width: 700px) {
+    .consent-banner__inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+    }
+
+    .consent-banner__copy {
+      max-width: 46rem;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const STORAGE_KEY = "hsb-consent";
+
+    function readChoice() {
+      try {
+        return localStorage.getItem(STORAGE_KEY);
+      } catch {
+        return null;
+      }
+    }
+
+    function writeChoice(choice: string) {
+      try {
+        localStorage.setItem(STORAGE_KEY, choice);
+      } catch {
+        // Storage can be blocked; the banner then reappears next visit.
+      }
+    }
+
+    function banner() {
+      return document.getElementById("consent-banner");
+    }
+
+    function syncBanner() {
+      const element = banner();
+      if (!element) return;
+      element.hidden = readChoice() !== null;
+    }
+
+    function grantAnalytics() {
+      const consent = (window as any).hsbConsent;
+      if ((window as any).gtag) {
+        (window as any).gtag("consent", "update", {
+          analytics_storage: "granted",
+        });
+      }
+      consent?.loadAnalytics();
+    }
+
+    function denyAnalytics() {
+      if ((window as any).gtag) {
+        (window as any).gtag("consent", "update", {
+          analytics_storage: "denied",
+        });
+      }
+    }
+
+    syncBanner();
+    document.addEventListener("astro:page-load", syncBanner);
+
+    document.addEventListener("click", event => {
+      if (!(event.target instanceof Element)) return;
+
+      if (event.target.closest("[data-consent-reset]")) {
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch {
+          // Nothing stored, nothing to clear.
+        }
+        denyAnalytics();
+        syncBanner();
+        banner()?.scrollIntoView({ block: "end" });
+        return;
+      }
+
+      const button = event.target.closest("[data-consent]");
+      const choice = button?.getAttribute("data-consent");
+      if (choice !== "granted" && choice !== "denied") return;
+
+      writeChoice(choice);
+      if (choice === "granted") {
+        grantAnalytics();
+      } else {
+        denyAnalytics();
+      }
+      syncBanner();
+    });
+  })();
+</script>

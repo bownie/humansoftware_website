@@ -1,0 +1,104 @@
+---
+import config from "@/config";
+
+type Props = {
+  title: string;
+  description?: string;
+  canonicalURL: string;
+};
+
+const {
+  title,
+  description = config.site.description,
+  canonicalURL,
+} = Astro.props;
+
+const origin = new URL(config.site.url).origin;
+const homeUrl = `${origin}/`;
+const canonical = new URL(canonicalURL).href;
+const path = new URL(canonicalURL).pathname.replace(/\/+$/, "");
+const isHome = path === "" || path === "/";
+
+const bookDescription =
+  "Beth Walters is a software engineer caught between exhaustion and ambition, holding a failing logistics system together through night shifts. When an American executive arrives to restructure the company with an AI overhaul, both women have to decide what progress is worth.";
+
+const breadcrumbItems = isHome
+  ? [{ name: "Home", item: homeUrl }]
+  : [
+      { name: "Home", item: homeUrl },
+      { name: title, item: canonical },
+    ];
+
+const graph = [
+  {
+    "@type": "WebSite",
+    "@id": `${origin}/#website`,
+    url: homeUrl,
+    name: config.site.title,
+    description: config.site.description,
+    inLanguage: "en-GB",
+    publisher: { "@id": `${origin}/#person` },
+  },
+  {
+    "@type": "Person",
+    "@id": `${origin}/#person`,
+    name: "Richard W. Bown",
+    url: homeUrl,
+    jobTitle: "Novelist and software engineer",
+    sameAs: [
+      "https://bsky.app/profile/bownie.bsky.social",
+      "https://www.linkedin.com/in/richard-bown/",
+      "https://www.goodreads.com/author/show/59396333.Richard_W_Bown",
+      "https://www.substack.com/@richardwbown",
+    ],
+  },
+  {
+    "@type": "Book",
+    "@id": `${origin}/#book`,
+    name: "Human Software",
+    alternateName: "Human Software: A Life in IT",
+    author: { "@id": `${origin}/#person` },
+    url: homeUrl,
+    image: `${origin}/human-software-cover-v6.jpg`,
+    description: bookDescription,
+    inLanguage: "en-GB",
+    isbn: "9789083469225",
+    numberOfPages: 306,
+    bookFormat: "https://schema.org/Paperback",
+    datePublished: "2025-10-04",
+    publisher: { "@type": "Organization", name: "Ingram Spark" },
+    offers: [
+      {
+        "@type": "Offer",
+        price: "10.99",
+        priceCurrency: "GBP",
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        url: "https://www.waterstones.com/book/human-software/richard-william-bown/9789083469225",
+      },
+      {
+        "@type": "Offer",
+        price: "12.99",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        url: "https://www.amazon.com/dp/B0FSK1QTCS",
+      },
+    ],
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${canonical}#breadcrumb`,
+    itemListElement: breadcrumbItems.map((breadcrumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: breadcrumb.name,
+      item: breadcrumb.item,
+    })),
+  },
+];
+
+const structuredData = { "@context": "https://schema.org", "@graph": graph };
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

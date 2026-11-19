@@ -1,6 +1,6 @@
 ---
 title: "About"
-description: "Richard W. Bown is a writer and software engineer, and a three-decade survivor of corporate IT."
+description: "Richard W. Bown is a novelist and software engineer, three decades into corporate IT. He writes about ambition, pressure and the people behind the technology."
 ---
 
 ## The making of a hard-bitten optimist

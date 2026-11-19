@@ -5,6 +5,8 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { resolveDefaultOgImagePath } from "@/utils/resolveDefaultOgImagePath";
 import { getAssetPath, stripBase } from "@/utils/withBase";
 import config from "@/config";
+import StructuredData from "@/components/StructuredData.astro";
+import ConsentBanner from "@/components/ConsentBanner.astro";
 import "@/styles/global.css";
 
 type Props = {
@@ -12,6 +14,7 @@ type Props = {
   description?: string;
   ogImage?: string;
   canonicalURL?: string;
+  ogImageAlt?: string;
 };
 
 const { site } = config;
@@ -21,6 +24,7 @@ const {
   description = site.description,
   ogImage = resolveDefaultOgImagePath(config),
   canonicalURL = new URL(stripBase(Astro.url.pathname), Astro.site).href,
+  ogImageAlt = "Human Software, a novel by Richard W. Bown. Beth is a software engineer caught between exhaustion and ambition.",
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
@@ -39,13 +43,16 @@ const rssHref = getRelativeLocaleUrl(
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href={getAssetPath("human-software-cover-v6.jpg")} />
+    <link rel="icon" href={getAssetPath("favicon.svg")} type="image/svg+xml" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font -->
     <Font
@@ -66,7 +73,12 @@ const rssHref = getRelativeLocaleUrl(
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -74,6 +86,14 @@ const rssHref = getRelativeLocaleUrl(
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image:alt" content={ogImageAlt} />
+
+    <!-- Structured data: WebSite, Person, Book and breadcrumbs -->
+    <StructuredData
+      title={title}
+      description={description}
+      canonicalURL={canonicalURL}
+    />
 
     <!-- RSS autodiscovery -->
     <link
@@ -98,25 +118,53 @@ const rssHref = getRelativeLocaleUrl(
       )
     }
 
-    {
-      site.googleTagId && (
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.googleTagId}`}></script>
-      )
-    }
-    {
-      site.googleTagId && (
-        <script
-          is:inline
-          define:vars={{ googleTagId: site.googleTagId }}
-        >
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <script is:inline define:vars={{ googleTagId: site.googleTagId }}>
+      if (googleTagId) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          window.dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
 
-          gtag('config', googleTagId);
-        </script>
-      )
-    }
+        // Consent Mode v2: nothing is stored or sent until the visitor agrees.
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "granted",
+          security_storage: "granted",
+        });
+
+        (function () {
+          var loaded = false;
+
+          function loadAnalytics() {
+            if (loaded) return;
+            loaded = true;
+
+            var script = document.createElement("script");
+            script.async = true;
+            script.src =
+              "https://www.googletagmanager.com/gtag/js?id=" + googleTagId;
+            document.head.appendChild(script);
+
+            gtag("js", new Date());
+            gtag("config", googleTagId, { anonymize_ip: true });
+          }
+
+          window.hsbConsent = { loadAnalytics: loadAnalytics };
+
+          try {
+            if (localStorage.getItem("hsb-consent") === "granted") {
+              loadAnalytics();
+            }
+          } catch (error) {
+            // Blocked storage means no consent, so analytics stays off.
+          }
+        })();
+      }
+    </script>
 
     <!--
       Inline FOUC-prevention script: sets data-theme on <html> before
@@ -141,6 +189,7 @@ const rssHref = getRelativeLocaleUrl(
     class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"
   >
     <slot />
+    <ConsentBanner />
     <script>
       import "@/scripts/theme";
     </script>

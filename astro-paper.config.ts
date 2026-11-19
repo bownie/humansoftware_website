@@ -3,12 +3,13 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://humansoftwarebook.com/",
-    title: "Human Software - a novel by Richard W. Bown",
-    shortTitle: "Human Software - a novel by Richard W. Bown",
-    description: "A story about ambition, loyalty and the people behind the systems we build.",
+    title: "Human Software — a novel by Richard W. Bown",
+    shortTitle: "Human Software",
+    description:
+      "Beth is a software engineer caught between exhaustion and ambition, holding a failing system together while an AI overhaul threatens her town.",
     author: "Richard Bown",
     profile: "https://humansoftwarebook.com",
-    ogImage: "human-software-cover-v6.jpg",
+    ogImage: "og.png",
     lang: "en",
     timezone: "Europe/Amsterdam",
     dir: "ltr",
@@ -26,7 +27,7 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: true,
-      url: "https://github.com/satnaing/astro-paper/edit/main/",
+      url: "https://github.com/bownie/humansoftware_website/edit/main/",
     },
     search: "pagefind",
   },

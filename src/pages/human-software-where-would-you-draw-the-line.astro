@@ -9,7 +9,7 @@ const storyUrl = getAssetPath("story/");
 <html lang={config.site.lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex,follow" />
     <meta http-equiv="refresh" content={`0;url=${storyUrl}`} />
     <link rel="canonical" href={new URL(storyUrl, Astro.site)} />
     <title>Read the story</title>

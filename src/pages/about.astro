@@ -32,9 +32,15 @@ const { Content } = await render(about);
   <Main pageTitle={about.data.title} class="app-prose humansoftware-about">
     <div class="about-author-grid">
       <img
-        src={getAssetPath("richardwbown-london-rooftop-square-reduced.jpg")}
+        src={getAssetPath("richardwbown-london-rooftop-square-560.jpg")}
+        srcset={`${getAssetPath("richardwbown-london-rooftop-square-560.jpg")} 560w, ${getAssetPath("richardwbown-london-rooftop-square-840.jpg")} 840w, ${getAssetPath("richardwbown-london-rooftop-square-reduced.jpg")} 1680w`}
+        sizes="(min-width: 601px) 280px, 240px"
+        width="560"
+        height="560"
         alt="Richard W. Bown on a rooftop in London"
         class="about-author-image"
+        loading="lazy"
+        decoding="async"
       />
       <div class="about-author-copy">
         <Content />

@@ -8,7 +8,7 @@ import { getAssetPath } from "@/utils/withBase";
 
 const pageTitle = "Human Software: Where Would You Draw the Line?";
 const pageDescription =
-  "Discover the story of Beth Walters and Chrissie Hegarty, caught in a high-stakes fight over AI, work and the people behind the systems.";
+  "Beth is caught between exhaustion and ambition. Chrissie is the American executive sent to restructure her town. A novel about AI, work and what we owe each other.";
 
 const endorsements = [
   {
@@ -78,8 +78,14 @@ const longerReviews = [
     <section class="book-overview-hero" aria-label="About the novel">
       <img
         class="book-overview-cover"
-        src={getAssetPath("human-software-cover-v6.jpg")}
+        src={getAssetPath("human-software-cover-480.jpg")}
+        srcset={`${getAssetPath("human-software-cover-320.jpg")} 320w, ${getAssetPath("human-software-cover-480.jpg")} 480w, ${getAssetPath("human-software-cover-640.jpg")} 640w`}
+        sizes="250px"
+        width="480"
+        height="760"
         alt="Human Software by Richard W. Bown"
+        fetchpriority="high"
+        decoding="async"
       />
       <div>
         <p class="book-overview-question">
@@ -158,6 +164,12 @@ const longerReviews = [
         Bulk orders of five or more are available at a discount, with the
         discussion guide included. Get in touch through the social links in the
         footer.
+      </p>
+      <p class="book-overview-bulk">
+        Sandport’s biggest employer,
+        <a href={getAssetPath("gerbach-landing/")}
+          >Gerbach Logistics &amp; Expedition Inc.</a
+        >, has a page of its own.
       </p>
     </section>
   </Main>

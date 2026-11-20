@@ -18,15 +18,19 @@ type Props = {
 
 const { site } = config;
 
+const defaultOgImage = resolveDefaultOgImagePath(config);
+
 const {
   title = site.title,
   description = site.description,
-  ogImage = resolveDefaultOgImagePath(config),
+  ogImage = defaultOgImage,
   canonicalURL = new URL(stripBase(Astro.url.pathname), Astro.site).href,
-  ogImageAlt = "Human Software, a novel by Richard W. Bown. Beth is a software engineer caught between exhaustion and ambition.",
+  ogImageAlt = "Human Software by Richard W. Bown — the book cover on a deep ink background",
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
+const isDefaultOgImage =
+  socialImageURL.href === new URL(defaultOgImage, Astro.site ?? Astro.url).href;
 ---
 
 <!doctype html>
@@ -71,10 +75,16 @@ const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content={socialImageURL} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={ogImageAlt} />
+    {
+      isDefaultOgImage && (
+        <>
+          <meta property="og:image:type" content="image/jpeg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={ogImageAlt} />
+        </>
+      )
+    }
 
     <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -82,7 +92,11 @@ const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
-    <meta property="twitter:image:alt" content={ogImageAlt} />
+    {
+      isDefaultOgImage && (
+        <meta property="twitter:image:alt" content={ogImageAlt} />
+      )
+    }
 
     <!-- Structured data: WebSite, Person, Book and breadcrumbs -->
     <StructuredData

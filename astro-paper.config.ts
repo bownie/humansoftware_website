@@ -6,10 +6,10 @@ export default defineAstroPaperConfig({
     title: "Human Software — a novel by Richard W. Bown",
     shortTitle: "Human Software",
     description:
-      "Beth is a software engineer caught between exhaustion and ambition, holding a failing system together while an AI overhaul threatens her town.",
+      "An AI overhaul, a data leak and a murder investigation: Beth Walters has kept Sandport’s failing logistics system alive through night shifts. Now she must decide what progress is worth.",
     author: "Richard Bown",
     profile: "https://humansoftwarebook.com",
-    ogImage: "og.png",
+    ogImage: "human-software-social.jpg",
     lang: "en",
     timezone: "Europe/Amsterdam",
     dir: "ltr",

@@ -31,10 +31,7 @@ const {
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
 const isDefaultOgImage =
   socialImageURL.href === new URL(defaultOgImage, Astro.site ?? Astro.url).href;
-const rssHref = getRelativeLocaleUrl(
-  Astro.currentLocale ?? config.site.lang,
-  "rss.xml"
-);
+---
 
 <!doctype html>
 <html

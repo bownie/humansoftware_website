@@ -17,7 +17,6 @@ export default defineAstroPaperConfig({
   },
   features: {
     lightAndDarkMode: true,
-    dynamicOgImage: true,
     showBackButton: true,
   },
   socials: [

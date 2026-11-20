@@ -13,10 +13,8 @@ function existsInPublic(filename: string): boolean {
  * Security note: `site.ogImage` must be a single filename under `public/` to avoid
  * path traversal or referencing arbitrary files.
  *
- * Behavior:
- * - When `features.dynamicOgImage` is enabled, prefers `public/{site.ogImage}` when present,
- *   otherwise falls back to the generated `/og.png`.
- * - When disabled, requires `public/{site.ogImage}` to exist.
+ * There is no generated fallback: the file must exist, so a missing card fails the
+ * build instead of shipping a broken social preview.
  */
 export function resolveDefaultOgImagePath(
   config: ResolvedAstroPaperConfig
@@ -28,19 +26,13 @@ export function resolveDefaultOgImagePath(
     filename.includes("\\")
   ) {
     throw new Error(
-      `site.ogImage must be a single filename in public/ (e.g. "default-og.jpg"), got "${filename}"`
+      `site.ogImage must be a single filename in public/ (e.g. "social-card.jpg"), got "${filename}"`
     );
-  }
-
-  if (config.features.dynamicOgImage) {
-    return existsInPublic(filename)
-      ? getAssetPath(filename)
-      : getAssetPath("og.png");
   }
 
   if (!existsInPublic(filename)) {
     throw new Error(
-      `AstroPaper: missing public/${filename}. Add that file, or set site.ogImage to an existing file under public/, or enable features.dynamicOgImage to fall back to /og.png.`
+      `AstroPaper: missing public/${filename}. Add that file or point site.ogImage at an existing file under public/.`
     );
   }
 

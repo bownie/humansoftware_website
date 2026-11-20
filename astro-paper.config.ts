@@ -15,21 +15,10 @@ export default defineAstroPaperConfig({
     dir: "ltr",
     googleTagId: "GT-NMKJ67ZK",
   },
-  posts: {
-    perPage: 4,
-    perIndex: 4,
-    scheduledPostMargin: 15 * 60 * 1000,
-  },
   features: {
     lightAndDarkMode: true,
     dynamicOgImage: true,
-    showArchives: true,
     showBackButton: true,
-    editPost: {
-      enabled: true,
-      url: "https://github.com/bownie/humansoftware_website/edit/main/",
-    },
-    search: "pagefind",
   },
   socials: [
     { name: "bluesky",   url: "https://bsky.app/profile/bownie.bsky.social" },

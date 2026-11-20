@@ -40,7 +40,7 @@
   .humansoftware-header {
     padding-top: 0.25rem;
     padding-bottom: 2rem;
-    font-family: "DM Sans", sans-serif;
+    font-family: var(--font-dm-sans);
   }
   .humansoftware-header-inner {
     display: flex;
@@ -125,7 +125,7 @@
     filter: brightness(0.95);
   }
   .humansoftware-footer {
-    font-family: "DM Sans", sans-serif;
+    font-family: var(--font-dm-sans);
   }
   .humansoftware-footer-nav {
     display: flex;
@@ -144,13 +144,13 @@
     color: var(--accent);
   }
   .humansoftware-about {
-    font-family: "DM Sans", sans-serif;
+    font-family: var(--font-dm-sans);
     padding-bottom: 4rem;
   }
   .humansoftware-about > h1 {
     margin: 1rem 0 2.5rem;
     color: var(--foreground);
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--font-fraunces);
     font-size: clamp(2.25rem, 4.5vw, 3.5rem) !important;
     font-weight: 400 !important;
     line-height: 1.05;
@@ -162,7 +162,7 @@
     margin-top: clamp(3rem, 7vw, 4.5rem);
     margin-bottom: 1.5rem;
     color: var(--foreground);
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--font-fraunces);
     font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 400;
     line-height: 1.15;
@@ -193,14 +193,14 @@
       0 4px 12px rgb(20 40 50 / 15%);
   }
   .humansoftware-home {
-    font-family: "DM Sans", sans-serif;
+    font-family: var(--font-dm-sans);
     font-size: 1.06rem;
     line-height: 1.7;
   }
   .humansoftware-home h1,
   .humansoftware-home h2,
   .humansoftware-home .serif {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--font-fraunces);
   }
   .humansoftware-hero {
     position: relative;
@@ -326,7 +326,7 @@
   .humansoftware-buy h2 {
     margin: 0 0 1.5rem;
     color: var(--foreground);
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--font-fraunces);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
     line-height: 1.12;
@@ -367,7 +367,7 @@
   .humansoftware-reader-reaction p {
     margin: 0;
     color: var(--foreground);
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--font-fraunces);
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     font-style: italic;
     line-height: 1.4;
@@ -462,7 +462,7 @@
   .humansoftware-format h3 {
     margin: 0 0 0.75rem;
     color: var(--foreground);
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--font-fraunces);
     font-size: 1.5rem;
   }
   .humansoftware-format-label {

@@ -30,10 +30,78 @@ const withBase = (path: string) => {
   return normalized ? `${basePath}/${normalized}` : `${basePath}/`;
 };
 
+/**
+ * Retired WordPress permalinks. The site was a blog on this domain, so each
+ * post existed at both /YYYY/MM/DD/slug/ and /slug/, alongside taxonomy,
+ * archive and upload paths. Astro matches redirects exactly, so every shape
+ * Google still crawls is listed here. Values are site-relative destinations.
+ */
+const legacyPaths: Record<string, string> = {
+  // Book pages and excerpts
+  "what-is-human-software-really-about/": "story/",
+  "human-software-a-life-in-it-release-date-announced/": "story/",
+  "a-fun-little-london-book-launch-for-human-software/": "story/",
+  "circle-phoenix-project-office-space-human-software/": "story/",
+  "reinventing-kent-and-drawing-a-map-sandport/": "story/",
+  "where-office-space-meets-local-hero/": "story/",
+  "human-software-now-available-in-paperback-kindle-leanpub-and-elsewhere/": "",
+  "book-excerpt-the-consultants/": "sample/",
+  "the-conference/": "sample/",
+  "who-should-read-human-software-three-reader-experiences/": "book-club/",
+  "why-keep-on-building-the-same-software-over-and-over/": "book-club/",
+
+  // Author essays and writing updates
+  "accepting-the-inevitable/": "about/",
+  "being-generous-with-your-ideas/": "about/",
+  "running-out-of-ideas/": "about/",
+  "development-edit-complete/": "about/",
+  "game-developers-get-the-ai-jitters/": "about/",
+  "sleep-walking-into-the-data-centre/": "about/",
+  "why-im-angry-about-data-centres-and-you-should-be-too/": "about/",
+  "the-moral-and-planetary-cost-of-the-use-of-genai/": "about/",
+  "reflections-on-mr-bates-vs-the-post-office/": "about/",
+  "writing-as-the-way-of-becoming-a-better-writer/": "about/",
+  "press/": "about/",
+
+  // WordPress furniture
+  "blog-archive/": "about/",
+  "author/humansoftware1/": "about/",
+  "tag/governance/": "about/",
+  "tag/self-publishing/": "about/",
+  "search/": "",
+
+  // Dated archive copies of the same posts
+  "2024/10/18/accepting-the-inevitable/": "about/",
+  "2025/07/03/writing-as-the-way-of-becoming-a-better-writer/": "about/",
+  "2025/09/02/using-ai-in-combination-with-drawing-to-make-book-illustrations/":
+    "",
+  "2025/09/30/human-software-now-available-in-paperback-kindle-leanpub-and-elsewhere/":
+    "",
+  "2025/10/24/a-fun-little-london-book-launch-for-human-software/": "story/",
+  "2025/12/10/reflections-on-mr-bates-vs-the-post-office/": "about/",
+  "2026/01/19/where-office-space-meets-local-hero/": "story/",
+  "2026/02/07/the-moral-and-planetary-cost-of-the-use-of-genai/": "about/",
+
+  // Uploads that no longer exist
+  "wp-content/uploads/2025/10/13103209-human-software-life-in-it-debut-novel-ai-and-dehumanisation-in-the-modern-workplace.pdf":
+    "story/",
+  "wp-content/uploads/2025/12/Human-Software-A-Life-in-IT-A-Novel-by-Richard-W-Bown-PROLOGUE.pdf":
+    "sample/",
+};
+
+const legacyRedirects = Object.fromEntries(
+  Object.entries(legacyPaths).map(([from, to]) => [
+    `/${from}`,
+    { destination: withBase(to), status: 301 as const },
+  ])
+);
+
 export default defineConfig({
   site: config.site.url,
   base,
   redirects: {
+    ...legacyRedirects,
+
     // Fragments are not crawlable URLs, so these three land on the full page.
     "/reviews": { destination: withBase("story/"), status: 301 },
     "/praise": { destination: withBase("story/"), status: 301 },

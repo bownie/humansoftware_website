@@ -1,6 +1,7 @@
 ---
 title: "Competition Terms and Conditions"
 description: "Terms and conditions for book giveaways and promotional competitions run by Richard W. Bown."
+noindex: true
 ---
 
 ## Who’s running the competition?

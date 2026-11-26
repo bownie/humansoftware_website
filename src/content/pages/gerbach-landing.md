@@ -1,6 +1,7 @@
 ---
 title: "Welcome to Human Software"
 description: "Meet Gerbach Logistics & Expedition Inc., the company at the heart of Human Software by Richard W. Bown."
+noindex: true
 ---
 
 You’ve found Gerbach Logistics & Expedition Inc. — or rather, you’ve found where they live.

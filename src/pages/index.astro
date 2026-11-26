@@ -10,6 +10,7 @@ import { getAssetPath } from "@/utils/withBase";
 const locale = Astro.currentLocale ?? config.site.lang;
 const homePath = getRelativeLocaleUrl(locale, "");
 const storyUrl = getRelativeLocaleUrl(locale, "story");
+const sampleUrl = getRelativeLocaleUrl(locale, "sample");
 const samplePdfUrl = `${getAssetPath(
   "book-assets/human-software-first-three-chapters-richard-w-bown.pdf"
 )}#view=FitH`;
@@ -55,6 +56,11 @@ const samplePdfUrl = `${getAssetPath(
           >
             Read a sample
           </button>
+          <p class="humansoftware-hero-links">
+            <a class="humansoftware-text-link" href={sampleUrl}>
+              Read the opening chapters online
+            </a>
+          </p>
         </div>
         <img
           src={getAssetPath("human-software-cover-480.jpg")}
@@ -94,8 +100,8 @@ const samplePdfUrl = `${getAssetPath(
       <p>
         PDF not displaying?
         <a href={samplePdfUrl} target="_blank" rel="noreferrer">
-          Open the sample in a new tab
-        </a>
+          Open the sample in a new tab</a
+        >, or <a href={sampleUrl}>read the opening chapters online</a>.
       </p>
     </dialog>
 

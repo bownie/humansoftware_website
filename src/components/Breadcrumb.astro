@@ -27,6 +27,7 @@ const decodeSegment = (value: string) => {
 const navLabels: Record<string, string> = {
   story: t.nav.story,
   praise: t.nav.praise,
+  sample: "Read a sample",
   "book-club": "Book club",
   "in-your-local-bookshop": "Local bookshop",
   "competition-terms-and-conditions": "Competition terms",
@@ -56,7 +57,10 @@ const navLabels: Record<string, string> = {
         index + 1 === breadcrumbList.length ? (
           <li>
             <span
-              class:list={["capitalize opacity-75", { lowercase: index > 0 }]}
+              class:list={[
+                "opacity-75",
+                { capitalize: !navLabels[breadcrumb], lowercase: index > 0 },
+              ]}
               aria-current="page"
             >
               {/* make the last part lowercase in Home > Tags > some-tag */}

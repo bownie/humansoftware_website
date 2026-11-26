@@ -1,0 +1,117 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+import { getAssetPath } from "@/utils/withBase";
+
+const sample = await getEntry("pages", "sample");
+
+if (!sample) {
+  throw new Error("Missing content entry: `sample.md` in `src/content/pages/`");
+}
+
+const { Content } = await render(sample);
+
+const pageTitle = "Read the opening chapters";
+const pageDescription =
+  sample.data.description ??
+  "Read the first three chapters of Human Software by Richard W. Bown.";
+
+const pdfUrl = getAssetPath(
+  "book-assets/human-software-first-three-chapters-richard-w-bown.pdf"
+);
+const storyUrl = getAssetPath("story/");
+const buyUrl = `${getAssetPath("")}#buy`;
+---
+
+<Layout
+  title={`${pageTitle} | ${config.site.title}`}
+  description={pageDescription}
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle={pageTitle}
+    pageDesc="Chapters one to three of Human Software."
+    class="app-prose humansoftware-about humansoftware-sample"
+  >
+    <p class="sample-download">
+      <a href={pdfUrl} download>Download these chapters as a PDF</a>
+      <span>Or keep reading on this page.</span>
+    </p>
+
+    <Content />
+
+    <p class="sample-cta">
+      <a href={buyUrl}>Get the book</a>
+      <a class="sample-cta-secondary" href={storyUrl}> More about the story </a>
+    </p>
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+  .sample-download {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 1rem;
+    margin: 0 0 2rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--muted);
+    padding: 0.5rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .sample-download a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .sample-download span {
+    color: var(--muted-foreground);
+  }
+
+  :global(.sample-scene-break) {
+    margin: 1.75rem 0;
+    color: var(--muted-foreground);
+    text-align: center;
+  }
+
+  .sample-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 2.5rem 0 0;
+  }
+
+  .sample-cta a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #13222a !important;
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .sample-cta a:hover {
+    filter: brightness(0.95);
+  }
+
+  .sample-cta .sample-cta-secondary {
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--foreground) !important;
+  }
+</style>

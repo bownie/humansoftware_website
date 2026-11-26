@@ -6,15 +6,19 @@
     @apply prose;
     @apply text-justify;
 
+    /* Headings stay ragged-right: justified short lines open huge word gaps. */
     h1 {
       @apply text-accent text-3xl font-semibold sm:text-4xl;
+      @apply text-left;
     }
     h2 {
       @apply text-accent/90 text-2xl font-semibold sm:text-3xl;
+      @apply text-left;
     }
 
     h3 {
       @apply italic;
+      @apply text-left;
     }
 
     h4,

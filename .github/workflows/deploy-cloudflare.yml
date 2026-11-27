@@ -40,6 +40,21 @@ jobs:
         id: credentials
         run: echo "configured=${{ secrets.CLOUDFLARE_API_TOKEN != '' }}" >> "$GITHUB_OUTPUT"
 
+      # `wrangler pages deploy --project-name` refuses to run against a project
+      # that does not exist yet, and the prompt that would create one needs a
+      # TTY that a runner does not have. Create it once, then deploy into it.
+      - name: Ensure the Pages project exists
+        if: steps.credentials.outputs.configured == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if npx --yes wrangler@4 pages project list | grep -qw humansoftware-website; then
+            echo "The humansoftware-website project already exists."
+          else
+            npx --yes wrangler@4 pages project create humansoftware-website --production-branch=main
+          fi
+
       - name: Deploy to Cloudflare Pages
         if: steps.credentials.outputs.configured == 'true'
         uses: cloudflare/wrangler-action@v3

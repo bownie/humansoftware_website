@@ -1,5 +1,14 @@
-# Cloudflare Pages project config: used by `wrangler pages dev` locally and by
-# the deploy workflow. The project name must match the one in Cloudflare.
+# Cloudflare Workers static assets config for the project the dashboard created,
+# "humansoftware-website". Its Git integration runs `npm run build` and then
+# `wrangler deploy`, which uploads ./dist together with the _redirects and
+# _headers files the Astro integration writes into it.
+#
+# `wrangler deploy` cannot read `pages_build_output_dir`, which is what this
+# file used to declare: that is a Pages-only field, and it is why the first
+# dashboard build failed.
 name = "humansoftware-website"
-pages_build_output_dir = "dist"
 compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"

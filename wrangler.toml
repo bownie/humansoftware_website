@@ -1,0 +1,5 @@
+# Cloudflare Pages project config: used by `wrangler pages dev` locally and by
+# the deploy workflow. The project name must match the one in Cloudflare.
+name = "humansoftware-website"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-11-01"

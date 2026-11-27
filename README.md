@@ -15,31 +15,29 @@
 - [ ] Remove sample blog posts from `src/content/blog/`
 - [ ] Update `README.md` if present
 
-## 3. GitHub Pages config
+## 3. Cloudflare Workers config
 
-- [ ] Go to repo → Settings → Pages
-- [ ] Set source to **GitHub Actions**
-- [ ] Add custom domain e.g. `newdomain.com`
-- [ ] Wait for DNS check to go green
-- [ ] Confirm **Enforce HTTPS** is ticked
-- GitHub Actions builds for the domain root by default, so the site works across custom domains. If deploying to a project URL such as `https://username.github.io/repo/`, set the repository Actions variable `ASTRO_BASE` to `/repo`.
+The site is served by Cloudflare Workers static assets. `wrangler.toml` declares
+`[assets] directory = "./dist"`, and the Astro integration in `astro.config.ts`
+writes `_redirects` and `_headers` into `dist/` so retired URLs return real 301s.
+
+- [ ] In the Cloudflare dashboard: Workers & Pages → Create → connect the repo
+- [ ] Build command `npm run build`, deploy command `npx wrangler deploy`
+- [ ] Attach both custom domains to the Worker: `newdomain.com` and `www.newdomain.com`
+- [ ] Add a zone Redirect Rule for `https://www.newdomain.com/*` → `https://newdomain.com/$1` (301, preserve query string)
+- [ ] SSL/TLS → Edge Certificates → **Always Use HTTPS** → On
+- The Worker serves the site at the domain root. `astro.config.ts` still honours
+  `ASTRO_BASE` if the site is ever deployed under a subpath.
 
 ## 4. Cloudflare DNS
 
-- [ ] Add four A records (name: `@`, DNS only — grey cloud):
-  ```
-  185.199.108.153
-  185.199.109.153
-  185.199.110.153
-  185.199.111.153
-  ```
-- [ ] Add CNAME record (name: `www`, target: `yourusername.github.io`, DNS only — grey cloud)
-- [ ] Confirm proxied is **off** (grey cloud) for all five records
+- [ ] Attaching the custom domains in step 3 creates the proxied DNS records
+- [ ] Do not point the records at GitHub Pages IPs; nothing is published there any more
 
 ## 5. Dependencies (avoid build failures)
 
 - [ ] Pin `@tailwindcss/vite` to `4.1.4` in `package.json`
-- [ ] Set Node.js version to `22` in `.github/workflows/deploy.yml`
+- [ ] Set the Node.js version in `.github/workflows/ci.yml` to match `package.json`
 - [ ] Commit both `package.json` and `package-lock.json`
 
 ## 6. Verify
